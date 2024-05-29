@@ -21,7 +21,7 @@
   <!-- CSS->SIDEBAR -->
   <link rel="stylesheet" href="<?php echo constant('URL') . 'public/css/sidebar.css' ?>">
 </head>
-
+ <!-- Diseño del panel de administracion en la parte superior-->
 <body>
   <div class="off-canvas-wrapper">
     <div class="off-canvas-content" data-off-canvas-content> 
@@ -33,20 +33,25 @@
         <header class="zeta-container">
           <div class="grid-x container">
           <div class="top-bar-left">
-  <ul class="menu vertical medium-horizontal">
-      <li><a href="#">Ingreso</a></li>
-      <li><a href="#">Galeria</a></li>
-      <li><a href="#">Entrega</a></li>
-    </ul>
-  </div>
+          <ul class="menu vertical medium-horizontal">
+            <li><a href="#">Ingreso</a></li>
+             <li><a href="#">Galeria</a></li>
+             <li><a href="#">Entrega</a></li>
+             </ul>
+           </div>
+
+   <!-- Barra de busqueda para los quimicos-->
+
             <div class="search-box">
               <input type="text" placeholder="Buscar...">
               <button type="submit"><i class="fas fa-search"></i></button>
             </div>
+ <!-- Llamado del nombre de usuario -->
             <div class="user-info">
               <span><i class="fas fa-user-tie"></i> Bienvenido: <?php echo $_SESSION['username'];?></span>
               <!-- ID DEL PERSONAL PUESTO EN EL HEADER PARA QUE DESDE CUALQUIER FORMULARIO SE PUEDA LLAMAR -->
               <input type="text" id="idpersonal" value="<?php echo $_SESSION['idpersonal']; ?>" hidden style="display:none">
+ <!-- Boton de cierre de secion del panel de administracion-->
               <li>
                 <a href="<?php echo constant('URL')?>login/logout">
                   <i class="fas fa-sign-out-alt"></i>

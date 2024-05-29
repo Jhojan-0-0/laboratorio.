@@ -1,5 +1,7 @@
 # REQUERIMIENTOS DEL SOFTWARE - laboratorio Una PUNO
 
+## REQUERIMIENTOS IDENTIFICADOS
+
 1. validación de login de ingreso
 2. registro de químicos
 . nombre “ingles, español”
@@ -28,9 +30,6 @@
 . entrega a que facultad
 . entrega al responsable “docente”
 6. historial de químicos
-
-
-
 
 
 

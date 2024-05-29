@@ -40,7 +40,7 @@
 - identrega -> identificador unico del entrega de quimico
 - feEntrega -> la fecha de entrega del quimico
 - codSalida -> codigo unico de salida
-- idquimico -> identificador foraneo del quimico
+- idquimico -> identificador foraneo de la tabla quimico
 - cantidad -> cantidad de quimico entregado
 - descripcion -> descripcion de la entrega del quimico
 - marca -> marca del quimico
