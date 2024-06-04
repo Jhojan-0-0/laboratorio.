@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Katari Price</title>
+  <title>Laboratorio</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="<?php echo constant('URL') . 'public/img/favicon.ico' ?>">
   <!-- FOUNDATION CSS-PRINCIPAL Y NECESARIO -->
@@ -26,7 +26,7 @@
   <div class="off-canvas-wrapper">
     <div class="off-canvas-content" data-off-canvas-content> 
       <div class="class text-center">
-        <h3>LABORATORIO</h3>
+        <h2>MEGA LABORATORIO</h2>
       </div>
     <div class="top-bar " id="topbar-center-logo">
         <!-- HEADER MAIN PAGE -->
@@ -34,9 +34,9 @@
           <div class="grid-x container">
           <div class="top-bar-left">
           <ul class="menu vertical medium-horizontal">
-            <li><a href="#">Ingreso</a></li>
-             <li><a href="#">Galeria</a></li>
-             <li><a href="#">Entrega</a></li>
+              <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
+              <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
+              <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
              </ul>
            </div>
 
@@ -62,3 +62,4 @@
           </div>
         </header>
         <!-- HEADER MAIN PAGE END-->
+    </div>
