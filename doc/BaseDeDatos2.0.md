@@ -46,3 +46,18 @@
 - marca -> marca del quimico
 - facultad -> la facultad al que se esta entregando el quimico
 - docente -> el nombre del docente al que se entrega el quimico
+
+### ENTIDAD PERSONAL
+
+- idpersonal -> identificador del personal del laboratorio
+- nombre -> nombre del personal del laboratorio
+- apellidos -> apellido del personal del laboratorio
+- dni -> dni del personal de la empresa
+- sexo -> sexo del personal de la empresa
+- telefono -> telefono del personal de la empresa
+- fechaNac -> fecha de nacimiento del personal de la empresa
+- email -> email del personal de la empresa
+- direccion -> direccion del personal de la empresa
+- foto -> foto del personal de la empresa
+- feCreate -> fecha de la creacion del registro
+- feUpdate -> fecha de la actualizacion del registro
