@@ -13,18 +13,35 @@
 </head>
 
 <body>
-  <div class="login-container">
-    <div class="login-form">
-      <h2>Login</h2>
-      <form action="login/logIn" method="POST">
-        <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" id="usuario" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <a href="#" style="color: #28a745; margin-bottom: 20px;">     </a>
-        <input type="submit" value="SIGN IN">
-      </form>
-      <img src="https://www.eduopinions.com/wp-content/uploads/2017/11/Universidad-Nacional-del-Altiplano-UNAP-logo.jpg" alt="Logo" style="margin-top: 20px; width: 100px;">
+  <div class="grid-container">
+    <div class="grid-x margin-3 login-z shadow">
+    <div class="cell large-6 callout formulario-z">
+        <div class="login">
+          <div class="margin-1">
+            <h2>Login</h2>
+          </div>
+          <form action="<?php echo constant('URL'); ?>login/logIn" method="POST">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario" value="jhon" required/>
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" value="123" required/>
+            <input type="submit" value="Ingresar" class="button success" />
+          </form>
+        </div>
+      </div>
+      <div class="cell large-6 callout info-z">
+        <div class="padding-horizontal-2">
+          <h1>LABORATORIO</h1>
+
+
+          <p class="lead">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi facilis suscipit, voluptates deserunt
+            sapiente pariatur hic velit itaque voluptate! Non quod dolorem aperiam nulla neque labore. Blanditiis magni
+            sapiente repudiandae?
+          </p>
+
+        </div>
+      </div>
     </div>
     <div class="image-section"></div>
   </div>
