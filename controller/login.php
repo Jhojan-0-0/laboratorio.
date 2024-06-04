@@ -16,24 +16,26 @@ class Login extends Controller
 	{
 		$user = trim(strtolower($_POST['usuario']));
 		$pass = trim(strtolower($_POST['password']));
-		
-		$validar = $this->model->Validar($user,$pass);
-		if($validar['usuario'] == $user && $validar['password'] == $pass){
-			if($validar['estado'] == 0){
-				$this->view->mensaje = 'Este usuario no se encuentra activo';
-				header('location:'.constant('URL'));
-				return;
+		#nivusu, chkusu, idpersonal
+		$datos = $this->model->validar($user,$pass);
+
+		if($datos['chkusu'])
+		{
+			#echo "Usuario Activo";
+			switch ($datos['nivusu']) {
+				case 1:
+					// Administrador...
+					break;
+				case 2:
+				   // Personal
+				   $_SESSION['katari'] = $datos['idpersonal'];
+				   header("Location: ".constant('URL')."/dashboard");
+				   break;
 			}
-			$_SESSION['katari'] = 'katariSoftware';
-			$_SESSION['username'] = $validar['nombre'];
-			$_SESSION['nivel'] = $validar['nivel'];
-			$_SESSION['idpersonal'] = $validar['idpersonal'];
-			$this->view->mensaje = 'Credenciales correctas';
-			header('location:'.constant('URL').'dashboard');
 		}else{
-			$this->view->mensaje = 'Credenciales incorrectas';
-			header('location:'.constant('URL'));
+			echo "Usuario no activo";
 		}
+
 	}
 	public function logout()
 	{

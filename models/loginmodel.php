@@ -1,22 +1,16 @@
 <?php
-class LoginModel extends Model{
+class LoginModel extends Model
+{
 
     function __construct()
     {
         parent::__construct();
     }
-    public function validar($usuario,$password){
-        $sql = "SELECT l.*,p.* FROM login l
-        join personal p
-        on l.idpersonal=p.idpersonal
-        WHERE usuario = '$usuario' AND password = '$password';";
+
+    function validar($usuario,$pass)
+    {
+        $sql = "SELECT nivusu, chkusu, idpersonal FROM login WHERE username = '$usuario' AND passwd = '$pass';";
         $res = $this->conn->ConsultaArray($sql);
         return $res;
     }
-    
-    
 }
-
-
-
-?>
