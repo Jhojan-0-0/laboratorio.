@@ -5,13 +5,15 @@
 ### usuario
 
 - idusuario **(PK): INT AUTO INCREMENT UNIQUE**
+- idpersonal **(FK): INT**
 - nombre **VARCHAR(50)**
 - contraceña **VARCHAR(100)**
 
-### quimicos
+### regQuimicos
 
 - idquimicos **(PK): INT AUTO INCREMENT UNIQUE**
-- nombre **VARCHAR(100)**
+- nombreEspañol **VARCHAR(100)**
+- nombreIngles **VARCHAR(100)**
 - concentracion **VARCHAR(50)**
 - tipoEnvace **VARCHAR(20)**
 - tamaño **VARCHAR(20)**
@@ -30,6 +32,7 @@
 ### gastoQuimicos
 
 - idgasto **(PK): INT AUTO INCREMENT UNIQUE**
+- ientrega **(FK): INT**
 - idquimico **(FK): INT**
 - fecha **DATE**
 - cantidad **INT**
@@ -46,3 +49,14 @@
 - marca **VARCHAR(100)**
 - facultad **VARCHAR(200)**
 - docente **VARCHAR(100)**
+
+### personal
+- idpersonal **(PK): INT AUTO INCREMENT UNIQUE**
+- nombre **VARCHAR(100)**
+- apellidos **VARCHAR(100)**
+- dni **INT**
+- sexo **VARCHAR(15)**
+- email **VARCHAR(100)**
+- foto **VARCHAR(200)**
+- feCreate **DATE CURRENT_TIMESTAMP**
+- feUpdate **DATE**

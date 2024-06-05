@@ -3,7 +3,7 @@
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Ingreso de quimicos</h3>
-		<a class="button success">Nuevo</a>
+		<a class="button success" href="<?php constant('URL');?>nuevo">Nuevo</a>
 	</div>
     <br>
 
@@ -32,6 +32,21 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
+
+	<div class="grid-x">
+		<div class="cell">
+			<div class="form">
+				<label for="">Cantidad
+					<input type="text" name="txtCantidad" id="txtCantidad">
+				</label>
+				<label for="">Grado de Instruccion
+					<input type="text" name="txtGradoInstruccion" id="txtGradoInstruccion">
+				</label>
+				
+				<button type="submit" name="btnNuevoRegistro" id="btnNuevoRegistro">Nuevo Registro</button>
+			</div>
+		</div>
 	</div>
 </div>
 

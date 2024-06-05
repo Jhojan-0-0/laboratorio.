@@ -19,7 +19,7 @@ class Login extends Controller
 		#nivusu, chkusu, idpersonal
 		$datos = $this->model->validar($user,$pass);
 
-		if($datos['chkusu'])
+		if($datos['estado'])
 		{
 			#echo "Usuario Activo";
 			switch ($datos['nivusu']) {
