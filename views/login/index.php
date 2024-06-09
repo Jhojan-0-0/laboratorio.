@@ -22,9 +22,9 @@
           </div>
           <form action="<?php echo constant('URL'); ?>login/logIn" method="POST">
             <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" id="usuario" value="jhon" required/>
+            <input type="text" name="usuario" id="usuario" value="elmer" required/>
             <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" value="123" required/>
+            <input type="password" name="pass" id="pass" value="elmer" required/>
             <input type="submit" value="Ingresar" class="button success" />
           </form>
         </div>

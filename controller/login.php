@@ -14,26 +14,34 @@ class Login extends Controller
 	}
 	public function logIn()
 	{
-		$user = trim(strtolower($_POST['usuario']));
-		$pass = trim(strtolower($_POST['password']));
+		$usuario = trim(strtolower($_POST['usuario']));
+		$pass = trim(strtolower($_POST['pass']));
 		#nivusu, chkusu, idpersonal
-		$datos = $this->model->validar($user,$pass);
-
-		if($datos['estado'])
+		$datos = $this->model->validar($usuario,$pass);
+		// echo var_dump($datos);
+		if($datos['usuario'] == $usuario && $datos['pass'] == $pass)
 		{
-			#echo "Usuario Activo";
-			switch ($datos['nivusu']) {
-				case 1:
-					// Administrador...
-					break;
-				case 2:
-				   // Personal
-				   $_SESSION['katari'] = $datos['idpersonal'];
-				   header("Location: ".constant('URL')."/dashboard");
-				   break;
-			}
+			// echo "si llega los datos delususaior";
+			// echo var_dump($datos);
+			$_SESSION['katari'] = $datos['idpersonal'];
+		    header("Location: ".constant('URL')."/dashboard");
+			
+		 	// $this->view->mensaje = 'Credenciales correctas';
+		 	// header('location:'.constant('URL').'dashboard');
+			
+		// // echo "Usuario existe";
+		// //  switch ($datos['nivusu']) {
+		//  	// case 1:
+		//  		// // Administrador...
+		//  		// break;
+		//  	// case 2:
+		//  	//    // Personal
+		//  	//    $_SESSION['katari'] = $datos['idpersonal'];
+		//  	//    header("Location: ".constant('URL')."/dashboard");
+		//  	//    break;
+		//  }
 		}else{
-			echo "Usuario no activo";
+		 echo "Usuario no existe";
 		}
 
 	}

@@ -34,20 +34,126 @@
 		</table>
 	</div>
 
-	<div class="grid-x">
-		<div class="cell">
-			<div class="form">
-				<label for="">Cantidad
-					<input type="text" name="txtCantidad" id="txtCantidad">
+<!-- comienso del formulario de la vista de ingreso -->
+	
+	<div class="content callout" style="border-color: purple;">
+		<div class="grid-x grid-margin-x">
+			<div class="cell" style="background-color: purple;">
+				<h3 style="color: white;">REGISTRO DE QUIMICOS</h3>
+			</div>
+		</div>
+
+		<div class="grid-x grid-margin-x">
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+					Nombre:
 				</label>
-				<label for="">Grado de Instruccion
-					<input type="text" name="txtGradoInstruccion" id="txtGradoInstruccion">
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+						Cantidad:
 				</label>
-				
-				<button type="submit" name="btnNuevoRegistro" id="btnNuevoRegistro">Nuevo Registro</button>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4"><label for="">
+					Foto:
+				</label>
+				<input type="text" name="" id=""> 
+			</div>
+		</div>
+		<div class="grid-x grid-margin-x">
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+					Concentracion:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+						Codigo de producto:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			
+		</div>
+		<div class="grid-x grid-margin-x">
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+					Tipo de Envase :
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+						tipo:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+		
+		</div>
+		<div class="grid-x grid-margin-x">
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+					Tamaño:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+						Precio:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4"><label for="">
+					Fecha de Fabricacion:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+		</div>
+		<div class="grid-x grid-margin-x">
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+					Marca:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">
+						Advertencia:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+			<div class="cell small-12 medium-4 large-4"><label for="">
+					Fecha de Vencimiento:
+				</label>
+				<input type="text" name="" id="">
+			</div>
+		</div>
+		
+		<div class="grid-x grid-margin-x">
+			<div class="cell small-12 medium-6 large-6">
+				<label for="">
+					Peso:
+				</label>
+				<input type="text" name="" id="">
+			
+			</div>
+			<div class="cell small-12 medium-6 large-6">
+				<label for="">
+					Clasificacion:
+				</label>
+				<input type="text" name="" id="">
+			
+			</div>
+			<div class="button-group align-center">
+				<button class="submit button" style="background-color: purple;">Guardar Muestra</button>
 			</div>
 		</div>
 	</div>
+
+<!-- fin del formulario de la vista de ingreso -->
+
 </div>
 
 <?php require ('views/footer.php');?>
