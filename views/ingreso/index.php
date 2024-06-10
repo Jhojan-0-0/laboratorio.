@@ -3,7 +3,7 @@
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Ingreso de quimicos</h3>
-		<a class="button success" href="<?php constant('URL');?>nuevo">Nuevo</a>
+		<a class="button success" href="<?php constant('URL');?>ingreso/nuevo">Nuevo</a>
 	</div>
     <br>
 
