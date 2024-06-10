@@ -1,5 +1,5 @@
 <?php require ('views/header.php');?>
-<br>
+
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Entrega de quimicos</h3>

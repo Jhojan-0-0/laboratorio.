@@ -49,14 +49,14 @@
             </div>
               <!-- Llamado del nombre de usuario -->
             <div class="user-info">
-              <span><i class="fas fa-user-tie"></i> Bienvenido: <?php echo $_SESSION['username'];?></span>
+              <span><i class="fas fa-user-tie"></i> Bienvenido: <?php echo $_SESSION['usuario'];?> </span>
               <!-- ID DEL PERSONAL PUESTO EN EL HEADER PARA QUE DESDE CUALQUIER FORMULARIO SE PUEDA LLAMAR -->
               <input type="text" id="idpersonal" value="<?php echo $_SESSION['idpersonal']; ?>" hidden style="display:none">
               <!-- Boton de cierre de secion del panel de administracion-->
               <li>
                 <a href="<?php echo constant('URL')?>login/logout">
                   <i class="fas fa-sign-out-alt"></i>
-                  <span class="nav-item">SALIR</span>
+                  <span class="nav-item"> SALIR</span>
                 </a>
               </li>
             </div>
