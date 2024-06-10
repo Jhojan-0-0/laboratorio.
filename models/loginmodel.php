@@ -9,7 +9,7 @@ class LoginModel extends Model
 
     function validar($usuario,$pass)
     {
-        $sql = "SELECT * FROM login WHERE usuario = '$usuario' AND pass = '$pass';";
+        $sql = "SELECT * FROM login WHERE username = '$usuario' AND passwd = '$pass';";
         $res = $this->conn->ConsultaArray($sql);
         return $res;
     }
