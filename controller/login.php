@@ -20,7 +20,7 @@ class Login extends Controller
 		#nivusu, chkusu, idpersonal
 		$datos = $this->model->validar($usuario,$pass);
 		// echo var_dump($datos);
-		if($datos['usuario'] == $usuario && $datos['pass'] == $pass)
+		if($datos['EDGAR'] == $usuario && $datos['pass'] == $pass)
 		{
 			// echo "si llega los datos delususaior";
 			// echo var_dump($datos);
