@@ -17,7 +17,7 @@
   <small class="copyright">Todos los derechos reservados.</small>
 </div>
 
-<script src="<?php echo constant('URL') . 'public/foundation/js/foundation.js' ?>"></script>
+
 <script>$(document).foundation();</script>
 
 </body>
