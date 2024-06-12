@@ -49,7 +49,7 @@
                 <a href="#0">Home</a>
               <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
               <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
-              <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
+              <li}><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
              </ul>
             </ul>
           </div>
