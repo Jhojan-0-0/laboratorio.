@@ -45,68 +45,71 @@
 
 		<div class="grid-x grid-margin-x">
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-					Nombre:
+				<label for="txtnombre">Nombre:
+					<input type="text" name="txtnombre" id ="txtnombre">
 				</label>
-				<input type="text" name="" id="">
+				
 			</div>
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-						Cantidad:
+				<label for="txtcantidad">Cantidad:
+					<input type="number" name="txtcantidad" id="txtcantidad" min="0" max="99">
 				</label>
-				<input type="text" name="" id="">
+				
 			</div>
-			<div class="cell small-12 medium-4 large-4"><label for="">
-					Foto:
+			<div class="cell small-12 medium-4 large-4">
+				<label for="txtfot">Foto:
+					<input type="file" name="txtfoto" id="txtfoto">
 				</label>
-				<input type="text" name="" id=""> 
+				
 			</div>
 		</div>
 		<div class="grid-x grid-margin-x">
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-					Concentracion:
+				<label for="txtconcentracion">Concentracion:
+					<input type="text" name="txtconcentracion" id="txtconcentracion">
 				</label>
-				<input type="text" name="" id="">
+				
 			</div>
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-						Codigo de producto:
+			
+				<label for="txtcodproducto">Codigo de producto:
+					<input type="text" name="txtcodproducto" id="txtcodproducto">
 				</label>
-				<input type="text" name="" id="">
+				
 			</div>
 			
 		</div>
 		<div class="grid-x grid-margin-x">
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-					Tipo de Envase :
+				<label for="txttipoenvase">Tipo de envase:
+					<input type="text" name="txttipoenvase" id="txttipoenvase">
 				</label>
-				<input type="text" name="" id="">
 			</div>
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-						tipo:
+				<label for="txttipo">Tipo:
+					<input type="text" name="txttipo" id="txttipo">
 				</label>
-				<input type="text" name="" id="">
 			</div>
 		
 		</div>
 		<div class="grid-x grid-margin-x">
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-					Tamaño:
+				<label for="txttipoenvase">Tamaño:
+					<select name="cboTamano" id="cboTamano">
+						<option value="" selected disabled>[Seleccione]</option>
+						<option value="Grande">Grande</option>
+						<option value="Mediano">Mediano</option>
+						<option value="Pequeño">Pequeño</option>
+					</select>
 				</label>
-				<input type="text" name="" id="">
 			</div>
 			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-						Precio:
+				<label for="txtprecio">Precio:
+					<input type="number" name="txtprecio" id="txtprecio">
 				</label>
-				<input type="text" name="" id="">
 			</div>
-			<div class="cell small-12 medium-4 large-4"><label for="">
-					Fecha de Fabricacion:
+			<div class="cell small-12 medium-4 large-4">
+				<label for="">Fecha de Fabricacion:
 				</label>
 				<input type="text" name="" id="">
 			</div>

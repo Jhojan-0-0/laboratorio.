@@ -1,37 +1,43 @@
 <?php require ('views/header.php');?>
-<br>
-<div class="grid-container">
+<link rel="stylesheet" href="./public/css/galeria.css">
 
-<!-- contenedor de Galeria con de se visualizara las cantidades ingresados-->
-  	<div class="grid-x grid-margin-x grid-margin-y grid-padding-x">
-		<div class="cell small-12 medium-6 large-6">
-            <input type="text" name="txtEjemplo" id="txtEjemplo">
+
+  <div class="grid-container">
+    <div class="section-title">TIPOS</div>
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <div class="card">
+          <div class="card-title">NORMALIZADOS</div>
+          <div class="card-number">0</div>
+          <button class="button button-custom">VER</button>
         </div>
-        <div class="cell small-12 medium-6 large-6">
-            <caption>Hola</caption>
+      </div>
+      <div class="medium-6 cell">
+        <div class="card">
+          <div class="card-title">FISCALIZADOS</div>
+          <div class="card-number">0</div>
+          <button class="button button-custom">VER</button>
         </div>
-	</div>
-    <div class="grid-x">
-        <div class="cell small-12 medium-6 large-6 text-center">
-            <h5>NORMALIZADO</h5>
-        </div>
-        <div class="cell small-12 medium-6 large-6 text-center">
-            <H5>FISCALIZADOS</H5>
-        </div>
+      </div>
     </div>
-    <div class="grid-x text-center">
-		<div class="cell">
-            <h4>CLASIFICACION</h4>
+    <div class="section-title">CLASIFICADOS</div>
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <div class="card">
+          <div class="card-title">ACIDOS</div>
+          <div class="card-number">0</div>
+          <button class="button button-custom">VER</button>
         </div>
-	</div>
-    <div class="grid-x">
-        <div class="cell small-12 medium-6 large-6 text-center">
-            <h5>ACIDOS</h5>
+      </div>
+      <div class="medium-6 cell">
+        <div class="card">
+          <div class="card-title">BASICOS</div>
+          <div class="card-number">0</div>
+          <button class="button button-custom">VER</button>
         </div>
-        <div class="cell small-12 medium-6 large-6 text-center">
-            <h5>BASICOS</h5>
-        </div>
+      </div>
     </div>
-</div>
-<br>
+  </div>
+
+
 <?php require ('views/footer.php');?>

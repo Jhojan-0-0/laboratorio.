@@ -1,0 +1,36 @@
+body {
+    background-color: #f9f9f9;
+  }
+  .section-title {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3a3a3a;
+  }
+  .card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 1.2rem;
+    color: #3a3a3a;
+  }
+  .card-number {
+    font-size: 2rem;
+    color: #1976d2;
+  }
+  .card-month {
+    color: #1976d2;
+  }
+  .button-custom {
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+    color: white;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+  }
