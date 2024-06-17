@@ -1,9 +1,11 @@
 <?php require ('views/header.php');?>
-
+<br>
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Entrega de quimicos</h3>
-		<a class="button success">Nuevo</a>
+		<a class="button success" href="<?php constant('URL');?>nuevo">Nuevo</a>
+
+		<?php  echo $this->mensaje;?>
 	</div>
     <br>
 
@@ -13,6 +15,7 @@
 		<table>
 			<thead>
 				<tr>
+					<th class="text-center">N°</th>
 					<th class="text-center">Docente</th>
 					<th class="text-center">Codigo</th>
 					<th class="text-center">Facultad</th>
@@ -26,90 +29,28 @@
 <!-- Reprecentacion de informacion de la tabla -->
 
 			<tbody id="personal-data">
-				<tr>
-					<td>Tony Soap</td>
-					<td>2425464</td>
-					<td>Facultad de Quimica</td>
-					<td>12/07/2023</td>
-					<td>Acido Sulfurico</td>
-					<td>Corning</td>
-					<td>2.5 L</td>
-				</tr>
+			
+			<?php
+				$data = $this->data;
+				while ($row = $data->fetch_array(MYSQLI_ASSOC)) {
+							echo "
+							<tr>
+								<td>".$row["identrega"]."</td>
+								<td>".$row["docente"]."</td>
+								<td>".$row["codSalida"]."</td>
+								<td>".$row["facultad"]."</td>
+								<td>".$row["feEntrega"]."</td>
+								<td>".$row["idquimico"]."</td>
+								<td>".$row["marca"]."</td>
+								<td>".$row["cantidad"]."</td>
+							</tr>
+							"; 
+						}
+				?>
+				
 			</tbody>
 		</table>
 	</div>
-
-
-<!-- comienso del formulario de la vista -->
-	<div class="content callout" style="border-color: purple;">
-		<div class="grid-x grid-margin-x">
-			<div class="cell" style="background-color: purple;">
-				<h3 style="color: white;">REGISTRO DE QUIMICOS</h3>
-			</div>
-		</div>
-		<div class="grid-x grid-margin-x">
-			<div class="cell small-12 medium-6 large-6">
-				<label for="">
-					Nombre de Docente:
-				</label>
-				<input type="text" name="" id="">
-			
-			</div>
-			<div class="cell small-12 medium-6 large-6">
-				<label for="">
-					Facultad:
-				</label>
-				<input type="text" name="" id="">
-			
-			</div>
-			
-		</div>
-	
-	
-		<div class="grid-x grid-margin-x">
-			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-					Marca:
-				</label>
-				<input type="text" name="" id="">
-			</div>
-			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-						Cantidad:
-				</label>
-				<input type="text" name="" id="">
-			</div>
-			<div class="cell small-12 medium-4 large-4"><label for="">
-					Fecha de Entrega:
-				</label>
-				<input type="text" name="" id="">
-			</div>
-		</div>
-		
-		<div class="grid-x grid-margin-x">
-			<div class="cell small-12 medium-4 large-4">
-				<label for="">
-					Codigo:
-				</label>
-				<input type="text" name="" id="">
-			
-			</div>
-			<div class="cell small-12 medium-8 large-8">
-				<label for="">
-					Descripcion:
-				</label>
-				<input type="text" name="" id="">
-			
-			</div>
-			<div class="button-group align-center">
-				<button class="submit button" style="background-color: purple;">Guardar Muestra</button>
-			</div>
-		</div>
-	</div>
-<!-- Fin del formulario de la vista -->
-
-
-
 </div>
 
 <?php require ('views/footer.php');?>

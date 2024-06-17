@@ -37,7 +37,7 @@
           <ul class="menu vertical medium-horizontal">
               <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
               <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
-              <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
+              <li><a href="<?php echo constant('URL'); ?>entrega/GetEntrega">Entrega</a></li>
              </ul>
            </div>
 
