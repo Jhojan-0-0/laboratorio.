@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS `entregaquimicos`;
 CREATE TABLE `entregaquimicos` (
   `identrega` int(11) NOT NULL AUTO_INCREMENT,
   `idquimico` int(11) NOT NULL,
-  `feEntrega` varchar(50) NOT NULL DEFAULT current_timestamp(),
+  `feEntrega` date DEFAULT NULL,
   `codSalida` int(11) DEFAULT NULL,
   `cantidad` int(11) DEFAULT 0,
   `descripcion` text DEFAULT NULL,
@@ -21,10 +21,8 @@ CREATE TABLE `entregaquimicos` (
   `docente` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`identrega`),
   KEY `idquimico` (`idquimico`),
-  KEY `codSalida` (`codSalida`),
-  CONSTRAINT `entregaquimicos_ibfk_1` FOREIGN KEY (`idquimico`) REFERENCES `quimicos` (`idquimico`),
-  CONSTRAINT `entregaquimicos_ibfk_2` FOREIGN KEY (`codSalida`) REFERENCES `salida` (`codSalida`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `entregaquimicos_ibfk_1` FOREIGN KEY (`idquimico`) REFERENCES `quimicos` (`idquimico`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -33,7 +31,7 @@ CREATE TABLE `entregaquimicos` (
 
 LOCK TABLES `entregaquimicos` WRITE;
 /*!40000 ALTER TABLE `entregaquimicos` DISABLE KEYS */;
-INSERT INTO `entregaquimicos` VALUES (1,1,'current_timestamp()',NULL,2,'para agricultura','kingtong','agranomia','juan');
+INSERT INTO `entregaquimicos` VALUES (1,1,'2020-02-07',1,1,'para mescla de quimicos','marca','quimica','jhojan'),(2,1,'2024-06-11',2,1,'producto para aguricultura','merk','Ing. Agronomia','jose'),(5,1,'2024-06-05',123,7,'Para el desarroll de fertilizantes quimicos','Mang','ing. quimica','zeta');
 /*!40000 ALTER TABLE `entregaquimicos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -48,7 +46,7 @@ CREATE TABLE `facultades` (
   `idfacultad` int(11) NOT NULL AUTO_INCREMENT,
   `facultad` varchar(80) NOT NULL,
   PRIMARY KEY (`idfacultad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +55,7 @@ CREATE TABLE `facultades` (
 
 LOCK TABLES `facultades` WRITE;
 /*!40000 ALTER TABLE `facultades` DISABLE KEYS */;
-INSERT INTO `facultades` VALUES (1,'quimica'),(2,'enfermeria');
+INSERT INTO `facultades` VALUES (1,'ing quimica');
 /*!40000 ALTER TABLE `facultades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +75,7 @@ CREATE TABLE `gastoQuimicos` (
   PRIMARY KEY (`idgasto`),
   KEY `idquimico` (`idquimico`),
   CONSTRAINT `gastoQuimicos_ibfk_1` FOREIGN KEY (`idquimico`) REFERENCES `quimicos` (`idquimico`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +84,6 @@ CREATE TABLE `gastoQuimicos` (
 
 LOCK TABLES `gastoQuimicos` WRITE;
 /*!40000 ALTER TABLE `gastoQuimicos` DISABLE KEYS */;
-INSERT INTO `gastoQuimicos` VALUES (1,1,'2022-09-08',19,'');
 /*!40000 ALTER TABLE `gastoQuimicos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +144,7 @@ CREATE TABLE `personal` (
 
 LOCK TABLES `personal` WRITE;
 /*!40000 ALTER TABLE `personal` DISABLE KEYS */;
-INSERT INTO `personal` VALUES (1,'jhojan','ichuta pacco','masculino','76456798','985475164',1);
+INSERT INTO `personal` VALUES (1,'jhojan','ichuta pacco','masculino','74851254','987563424',1);
 /*!40000 ALTER TABLE `personal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,10 +159,10 @@ CREATE TABLE `quimicos` (
   `idquimico` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `concentracion` varchar(50) DEFAULT NULL,
-  `tipoEnvace` varchar(20) DEFAULT NULL,
+  `tipoEnvase` varchar(20) DEFAULT NULL,
   `tamanio` varchar(20) DEFAULT NULL,
   `marca` varchar(70) DEFAULT NULL,
-  `peso` decimal(10,0) DEFAULT 0,
+  `peso` decimal(10,2) DEFAULT 0.00,
   `cantidad` int(11) DEFAULT 0,
   `feFabricacion` date DEFAULT NULL,
   `feVencimiento` date DEFAULT NULL,
@@ -173,7 +170,7 @@ CREATE TABLE `quimicos` (
   `advertencia` text DEFAULT NULL,
   `foto` varchar(250) DEFAULT NULL,
   `tipo` varchar(20) DEFAULT NULL,
-  `precio` decimal(10,0) DEFAULT 0,
+  `precio` decimal(10,2) DEFAULT 0.00,
   `clasificacion` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idquimico`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -185,38 +182,8 @@ CREATE TABLE `quimicos` (
 
 LOCK TABLES `quimicos` WRITE;
 /*!40000 ALTER TABLE `quimicos` DISABLE KEYS */;
-INSERT INTO `quimicos` VALUES (1,'acido sulfurico','50%','plastico','grande','corning',10,2,'2023-05-12','2222-11-11','87347','pleligroso',NULL,'normalizado',100,'acidos');
+INSERT INTO `quimicos` VALUES (1,'acido sulfurico','50%','plastico','mediano','merk',5.70,1,'2001-07-06','2008-09-03','j7fyr5','no es peligroso',NULL,'normalizado',120.00,'basicos');
 /*!40000 ALTER TABLE `quimicos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `salida`
---
-
-DROP TABLE IF EXISTS `salida`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `salida` (
-  `codSalida` int(11) NOT NULL AUTO_INCREMENT,
-  `fechaSalida` date DEFAULT current_timestamp(),
-  `idpersonal` int(11) NOT NULL,
-  `idfacultad` int(11) NOT NULL,
-  PRIMARY KEY (`codSalida`),
-  KEY `idpersonal` (`idpersonal`),
-  KEY `idfacultad` (`idfacultad`),
-  CONSTRAINT `salida_ibfk_1` FOREIGN KEY (`idpersonal`) REFERENCES `personal` (`idpersonal`),
-  CONSTRAINT `salida_ibfk_2` FOREIGN KEY (`idfacultad`) REFERENCES `facultades` (`idfacultad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `salida`
---
-
-LOCK TABLES `salida` WRITE;
-/*!40000 ALTER TABLE `salida` DISABLE KEYS */;
-INSERT INTO `salida` VALUES (1,'2202-02-02',1,2);
-/*!40000 ALTER TABLE `salida` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -228,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-05 15:05:51
+-- Dump completed on 2024-06-17 12:14:40
