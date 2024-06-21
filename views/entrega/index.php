@@ -23,8 +23,10 @@
 					<th class="text-center">Quimico</th>
 					<th class="text-center">Marca</th>
 					<th class="text-center">Cantidad</th>
+					
 				</tr>
 			</thead>
+			
 
 <!-- Reprecentacion de informacion de la tabla -->
 
@@ -47,10 +49,23 @@
 							"; 
 						}
 				?>
+
 				
 			</tbody>
 		</table>
 	</div>
 </div>
+		<ul class="pagination-pointed pagination text-center" role="navigation" aria-label="Pagination">
+		<li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
+		<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+		<li><a class="pagination-pointed-button" href="#" aria-label="Page 2">2</a></li>
+		<li><a class="pagination-pointed-button" href="#" aria-label="Page 3">3</a></li>
+		<li><a class="pagination-pointed-button" href="#" aria-label="Page 4">4</a></li>
+		<li class="ellipsis" aria-hidden="true"></li>
+
+		<li class="pagination-next"><a class="pagination-pointed-button" href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+		</ul>
+
+
 
 <?php require ('views/footer.php');?>
