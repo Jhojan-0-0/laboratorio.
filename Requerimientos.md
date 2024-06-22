@@ -31,7 +31,11 @@
 . entrega al responsable “docente”
 6. historial de químicos
 
+. mililitros
+. formula de acido
 
+crear tabla nueva
 
+idins
 
 - registro mediante código de barra
