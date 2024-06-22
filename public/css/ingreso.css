@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+}
+
+.upload {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-top: 10%;
+}
+
+.inputfile + label {
+    font-size: 15px;
+    color: aliceblue;
+    background-color: blue;
+    text-align: center;
+    display: inline-grid;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inputfile {
+    width: 80px;
+    height: 0px;
+    opacity: 0px;
+}
+
+.inputfile:hover + label {
+    background-color: rgb(75, 141, 228);
+}
+
+.imagen {
+    margin-top: 10%;
+    border: 1px solid;
+    border-style: dashed;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+

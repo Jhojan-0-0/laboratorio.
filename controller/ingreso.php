@@ -12,4 +12,9 @@ class Ingreso extends Controller
 	{
 		$this->view->Render('ingreso/index');
 	}
+
+	function nuevo()
+	{
+		$this->view->Render('ingreso/nuevo');
+	}
 }

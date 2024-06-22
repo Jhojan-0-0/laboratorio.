@@ -46,17 +46,15 @@
             <ul class="dropdown menu" data-dropdown-menu>
               <li class="menu-text">Katari</li>
               <li class="has-submenu">
-                <a href="#0">Home</a>
+              <li><a href="<?php echo constant('URL'); ?>dashboard">Home</a></li>
               <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
               <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
-              <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
+              <li><a href="<?php echo constant('URL'); ?>entrega/GetEntrega">Entrega</a></li>
              </ul>
             </ul>
           </div>
           <div class="top-bar-right">
             <ul class="menu">
-              <li><input type="search" placeholder="Search"></li>
-              <li><button type="button" class="button">Search</button></li>
               <li><a href="<?php echo constant('URL'); ?>login/logout">Salir</a></li>
             </ul>
           </div>
