@@ -7,7 +7,7 @@
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
         <div class="card">
-          <div class="card-title">NORMALIZADOS</div>
+          <div class="card-title">COMUNES</div>
           <div class="card-number">0</div>
           <button class="button button-custom">VER</button>
         </div>

@@ -8,17 +8,31 @@ class Entregamodel extends Model
     }
     public function GetEntrega()
     {
-        $sql = "SELECT identrega, idquimico, feEntrega, codSalida, cantidad, descripcion, marca, facultad, docente FROM entregaquimicos;";
+        $sql = "SELECT identrega, nombre, fecEntrega, codquimico, cantidad, descripcion, marca, entidad, docente FROM v_consulta;";
         $data = $this->conn->ConsultaCon($sql);
         return $data;
     }
 
-    function Guardar($idquimico, $fechaEntrega,$codSalida,$cantidad,$descripcion,$marca,$facultad,$docente)
-    {
-        $sql = "INSERT INTO entregaquimicos VALUES (null, $idquimico, '$fechaEntrega',$codSalida,$cantidad,'$descripcion','$marca','$facultad','$docente');";
-        $res = $this->conn->ConsultaSin($sql);
+     function Guardar($idquimico, $fecEntrega,$codquimico,$cantidad,$descripcion,$marca,$identidad,$docente)
+     {
+         $sql = "INSERT INTO quimicos_entrega VALUES (null, $idquimico, '$fecEntrega','$codquimico',$cantidad,'$descripcion','$marca','$identidad','$docente');";
+         $res = $this->conn->ConsultaSin($sql);
+         return $res;
+     }
+
+     function ListaQuimicos()
+     {
+        $sql = "SELECT idquimico, nombre FROM quimicos_registro;";
+        $res = $this->conn->ConsultaCon($sql);
         return $res;
-    }
+     }
+
+     function ListaEntidad()
+     {
+        $sql = "SELECT identidad, entidad FROM entidad;";
+        $res = $this->conn->ConsultaCon($sql);
+        return $res;
+     }
 }
 
 
