@@ -8,14 +8,14 @@
       <div class="medium-6 cell">
         <div class="card">
           <div class="card-title">NORMALIZADOS</div>
-          <div class="card-number">0</div>
+          <div class="card-number"><?php echo $this->data['normalizados'];?></div>
           <button class="button button-custom">VER</button>
         </div>
       </div>
       <div class="medium-6 cell">
         <div class="card">
           <div class="card-title">FISCALIZADOS</div>
-          <div class="card-number">0</div>
+          <div class="card-number"><?php echo $this->data['fiscalizados'];?></div>
           <button class="button button-custom">VER</button>
         </div>
       </div>
@@ -25,14 +25,14 @@
       <div class="medium-6 cell">
         <div class="card">
           <div class="card-title">ACIDOS</div>
-          <div class="card-number">0</div>
+          <div class="card-number"><?php echo $this->data['acidos'];?></div>
           <button class="button button-custom">VER</button>
         </div>
       </div>
       <div class="medium-6 cell">
         <div class="card">
           <div class="card-title">BASICOS</div>
-          <div class="card-number">0</div>
+          <div class="card-number"><?php echo $this->data['basicos'];?></div>
           <button class="button button-custom">VER</button>
         </div>
       </div>

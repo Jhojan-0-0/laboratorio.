@@ -66,7 +66,7 @@
                     </label>
                 </div>
 
-                <!-- Segunda columna -->
+                <!-- Segunda columna -->                                                                         
                 <div class="cell small-12 medium-4 large-4">
                     <label for="txtcantidad">Cantidad:
                         <input type="number" name="txtcantidad" id="txtcantidad" min="0" max="99">
@@ -81,7 +81,7 @@
                         <input type="text" name="txtfabricacion" id="txtfabricacion">
                     </label>
                     <label for="txtvencimiento">Fecha de Vencimiento:
-                        <input type="text" name="txtvencimiento" id="txtvencimiento">
+                        <input type="date                                                                                                                                                                                                                                                                                                                                                                                                                                               " name="txtvencimiento" id="txtvencimiento">
                     </label>
                     <label for="txtpeso">Peso:
                         <input type="text" name="txtpeso" id="txtpeso">

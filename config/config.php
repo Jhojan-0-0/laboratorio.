@@ -5,7 +5,7 @@ define('URL', 'http://localhost/laboratorio/');
 define('COMPANY', 'Laboratorio UNA-PUNO');
 define('HOST', 'localhost');
 define('USER', 'josue');
-define('DB', 'laboratorio');
+define('DB', 'laboratorioUna');
 define('PASSWORD', 'josue');
 define('CHATSET', 'utf8');
 
