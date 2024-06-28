@@ -11,7 +11,7 @@ $(document).ready(function () {
 function tablaPersonal() {
   $.ajax({
     type: "GET",
-    url: `http://localhost/katariPrice/personal/getPersonal`,
+    url: `http://localhost/laboratorio/personal/getPersonal`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -22,9 +22,6 @@ function tablaPersonal() {
                 <td>${element.nombres}</td>
                 <td>${element.telefono}</td>
                 <td>${element.email}</td>
-                <td><a class="button" href="http://localhost/katariPrice/personal/detalles/${element.idpersonal}">Detalles</a></td>
-                <td><a class="button warning" href="http://localhost/katariPrice/personal/login/${element.idpersonal}">Login</a></td>
-                <td><button class="button alert" id="eliminar">Eliminar</button></td>
             </tr>`;
       });
       $("#personal-data").html(html);

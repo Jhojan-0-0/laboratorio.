@@ -34,8 +34,16 @@
 . mililitros
 . formula de acido
 
-crear tabla nueva
 
-idins
+multiusuario
+
+otros paneles para futuro
+para otras facultades
+
+un panel principal 
+
+diversos acsesos
+
+agregar canpos
 
 - registro mediante código de barra
