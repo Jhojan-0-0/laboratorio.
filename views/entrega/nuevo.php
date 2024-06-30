@@ -16,8 +16,20 @@
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">
-        <label for="txtquimico">Quimico
-          <input type="text" name="idquimico" id="idquimico">
+        <label for="idquimico">Quimico
+          <select name="idquimico" id="idquimico">
+            <option value="" selected disable>Seleccione</option>
+            <?php 
+            $res = $this->data;
+              while($row = $res->fetch_array(MYSQLI_ASSOC)){
+            ?>
+               <option value="<?php echo $row['idquimico'];?>"><?php echo $row['nombre'];?></option>
+
+             <?php   
+              }
+              ?>
+          </select>
+          
         </label>
       </div>
     </div>
@@ -28,7 +40,7 @@
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">
-        <label for="txtcodigo">Código
+        <label for="txtcodigo">Código Quimico
           <input type="text" name="txtcodigo" id="txtcodigo" placeholder="">
         </label>
       </div>
@@ -40,8 +52,21 @@
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">
-        <label for="txtfacultad">Facultad
-          <input type="text" name="txtfacultad" id="txtfacultad" placeholder="">
+        <label for="identidad">Facultad / Entidad
+        <select name="identidad" id="identidad">
+            <option value="" selected disable>[Seleccione]</option>
+            <?php 
+            $quimico = $this->data2;
+            while($row1 = $quimico->fetch_array(MYSQLI_ASSOC))
+            {
+            ?>
+               <option value="<?php echo $row1['identidad'];?>"><?php echo $row1['entidad'];?></option>
+
+             <?php   
+              }
+              ?>
+          </select>
+
         </label>
       </div>
     </div>
@@ -59,7 +84,7 @@
     </div>
     <div class="cell small-12 medium-6 large-6 text-center">
           <button class="button button-custom" type="submit" name="btnguardar" id="btnguardar">Guardar</button>
-          <a href="<?php echo constant('URL') ?>entrega/getEntrega" class="button alert">Volver</a>
+          <a href="<?php echo constant('URL') ?>entrega" class="button alert">Volver</a>
         </div>
 
 

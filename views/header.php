@@ -36,10 +36,10 @@
     <div class="grid-x">
       <div class="cell">
 
-        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <!-- <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
           <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
           <div class="title-bar-title">Menu</div>
-        </div>
+        </div> -->
 
         <div class="top-bar" id="responsive-menu">
           <div class="top-bar-left">
@@ -49,7 +49,7 @@
               <li><a href="<?php echo constant('URL'); ?>dashboard">Home</a></li>
               <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
               <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
-              <li><a href="<?php echo constant('URL'); ?>entrega/GetEntrega">Entrega</a></li>
+              <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
              </ul>
             </ul>
           </div>
