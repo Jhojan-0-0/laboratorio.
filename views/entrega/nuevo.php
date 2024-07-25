@@ -1,5 +1,5 @@
 <?php require ('views/header.php');?>
-<br>  
+
 <link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/entrega.css">
   <div class="grid-container">
 
@@ -18,14 +18,14 @@
       <div class="cell small-12 medium-6 large-6">
         <label for="idquimico">Quimico
           <select name="idquimico" id="idquimico">
-            <option value="" selected disable>Seleccione</option>
+            <option value="" selected disabled>Seleccione...</option>
             <?php 
             $res = $this->data;
               while($row = $res->fetch_array(MYSQLI_ASSOC)){
             ?>
-               <option value="<?php echo $row['idquimico'];?>"><?php echo $row['nombre'];?></option>
+              <option value="<?php echo $row['idquimico'];?>"><?php echo $row['nombre'];?></option>
 
-             <?php   
+            <?php   
               }
               ?>
           </select>
@@ -40,6 +40,7 @@
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">
+        <div id="resultado"></div>
         <label for="txtcodigo">Código Quimico
           <input type="text" name="txtcodigo" id="txtcodigo" placeholder="">
         </label>
@@ -54,15 +55,15 @@
       <div class="cell small-12 medium-6 large-6">
         <label for="identidad">Facultad / Entidad
         <select name="identidad" id="identidad">
-            <option value="" selected disable>[Seleccione]</option>
+            <option value="" selected disabled>Seleccione...</option>
             <?php 
             $quimico = $this->data2;
             while($row1 = $quimico->fetch_array(MYSQLI_ASSOC))
             {
             ?>
-               <option value="<?php echo $row1['identidad'];?>"><?php echo $row1['entidad'];?></option>
+              <option value="<?php echo $row1['identidad'];?>"><?php echo $row1['entidad'];?></option>
 
-             <?php   
+            <?php   
               }
               ?>
           </select>
@@ -85,10 +86,39 @@
     <div class="cell small-12 medium-6 large-6 text-center">
           <button class="button button-custom" type="submit" name="btnguardar" id="btnguardar">Guardar</button>
           <a href="<?php echo constant('URL') ?>entrega" class="button alert">Volver</a>
-        </div>
-
+        </div>        
 
   </form>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      $("#idquimico").change(function(){
+        let codigo = document.getElementById("idquimico").value;
+        let textcod =document.getElementById("txtcodigo");
+        let marca =document.getElementById("txtmarca");
+        $.ajax({
+                //data:  parametros, //datos que se envian a traves de ajax
+                url:   'http://localhost/laboratorio/entrega/getDatos', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                data: {idquimico:codigo},
+                // beforeSend: function () {
+                //         $("#resultado").html("Procesando, espere por favor...");
+                // },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                    
+                        let data = JSON.parse(response);
+                        textcod.value = data.codProducto;
+                        marca.value = data.marca;
+                        
+                        //$("#resultado").html(html);
+                },
+                error:function(err){
+                  $("#resultado").html(err);
+                }
+        });
+      });
+    });
+  </script>
 
 <?php require ('views/footer.php');?>

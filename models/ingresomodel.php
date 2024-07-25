@@ -5,32 +5,32 @@ class IngresoModel extends Model{
         parent::__construct();
     }
     // LISTAS COTIZACIONES
-    public function mostrarDato(){
-        $sql = "SELECT * from quimicos;";
+    public function ListarQuimico(){
+        $sql = "SELECT * from quimicos_registro;";
         $data = $this->conn->ConsultaCon($sql);
         return $data;
     }
 
-    public function registrarQuimico($nombre, $concentracion, $tipoEnvace, $tamanio, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $foto, $tipo, $precio, $clasificacion)
+    public function registrarQuimico($nombre, $concentracion, $tipoEnvace, $tamanio, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $foto, $tipo, $precio, $clasificacion, $formula)
     {
-        $sql = "INSERT INTO quimicos (nombre, concentracion, tipoEnvace, tamanio, marca, peso, cantidad, feFabricacion, feVencimiento, codProducto, advertencia, foto, tipo, precio, clasificacion) 
-                VALUES ('$nombre', '$concentracion', '$tipoEnvace', '$tamanio', '$marca', '$peso', '$cantidad', '$feFabricacion', '$feVencimiento', '$codProducto', '$advertencia', '$foto', '$tipo', '$precio', '$clasificacion')";
-        
+        $sql = "INSERT INTO quimicos_registro (nombre, concentracion, tipoEnvace, tamanio, marca, peso, cantidad, feFabricacion, feVencimiento, codProducto, advertencia, foto, tipo, precio, clasificacion, formula) 
+                VALUES ('$nombre', '$concentracion', '$tipoEnvace', '$tamanio', '$marca', '$peso', '$cantidad', '$feFabricacion', '$feVencimiento', '$codProducto', '$advertencia', '$foto', '$tipo', '$precio', '$clasificacion', '$formula')";
         $data = $this->conn->ConsultaSin($sql);
         return $data;
     }
 
-    public function buscarquimico($query){
-        $sql = "SELECT * FROM quimicos WHERE nombre LIKE '%$query%' OR tipo LIKE '%$query%' OR clasificacion LIKE '%$query%';";
+    public function Buscarquimico($query){
+        $sql = "SELECT * FROM quimicos_registro WHERE nombre LIKE '%$query%' OR codProducto LIKE '%$query%' OR formula LIKE '%$query%';";
         $res = $this->conn->ConsultaCon($sql);
         return $res;
     }
     
-   
-    
-    
+    public function Delete($id)
+    {
+        $sql = "DELETE FROM `laboratorioUNA`.`quimicos_registro` WHERE (`idquimico` = '$id');";
+        $res = $this->conn->ConsultaSin($sql);
+        return $res;
+    }   
 }
-
-
 
 ?>

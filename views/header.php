@@ -44,13 +44,13 @@
         <div class="top-bar" id="responsive-menu">
           <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
-              <li class="menu-text">Katari</li>
+              <li class="menu-text">KatariA&C</li>
               <li class="has-submenu">
               <li><a href="<?php echo constant('URL'); ?>dashboard">Home</a></li>
               <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
               <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
               <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
-             </ul>
+            </ul>
             </ul>
           </div>
           <div class="top-bar-right">

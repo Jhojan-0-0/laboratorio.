@@ -6,7 +6,6 @@ class DashboardModel extends Model{
         parent::__construct();
     }
     
-    
 }
 
 

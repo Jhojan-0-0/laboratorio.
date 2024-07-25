@@ -3,11 +3,46 @@
   font-size: 16px; }
 
 .titulo {
-  background-color: #FFF2BF;
+  background-color: white;
   /*border: 2px solid red;*/
-  color: #226CBD;
-  text-align: center; }
+  color: #070707;
+  text-align: center;
+  font-weight: bold; /* Para hacer la letra más gruesa */
+  font-size: 35px;   /* Ajusta el tamaño según tus necesidades */
+}
 
 /*# sourceMappingURL=estilo.css.map */
 
 /*# sourceMappingURL=estilo.css.map */
+
+
+/* Estilos para el menú desplegable */
+.dropdown.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 9px;
+}
+
+/* Estilos para los elementos del menú */
+.dropdown.menu > li {
+  position: relative; /* Necesario para posicionar el submenu si es necesario */
+}
+
+/* Estilos para los enlaces del menú */
+.dropdown.menu > li > a {
+  display: block;
+  background-color: rgb(19, 106, 236); /* Fondo negro */
+  color: white;            /* Texto blanco */
+  padding: 15px 15px;      /* Espaciado interno */
+  text-decoration: none;   /* Sin subrayado */
+  border-radius: 10px;     /* Bordes redondeados */
+  margin-bottom: 10px;     /* Espacio entre los ítems (10px abajo) */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+/* Estilos para los enlaces cuando el cursor está sobre ellos */
+.dropdown.menu > li > a:hover {
+  background-color: white; /* Fondo blanco en hover */
+  color: rgb(37, 74, 236);            /* Texto negro en hover */
+}

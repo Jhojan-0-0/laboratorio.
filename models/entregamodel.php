@@ -33,6 +33,19 @@ class Entregamodel extends Model
         $res = $this->conn->ConsultaCon($sql);
         return $res;
      }
+
+     function getDatos($idquimico)
+     {
+        $sql = "SELECT idquimico, nombre, marca, codProducto FROM quimicos_registro WHERE idquimico = " . $idquimico;
+        $res = $this->conn->ConsultaArray($sql);
+        return $res;
+     }
+
+     public function buscarentrega($query){
+        $sql = "SELECT * FROM v_consulta WHERE nombre LIKE '%$query%' OR entidad LIKE '%$query%' OR fecEntrega LIKE '%$query%' OR codquimico LIKE '%$query%' OR docente LIKE '%$query%';";
+        $res = $this->conn->ConsultaCon($sql);
+        return $res;
+    }
 }
 
 
