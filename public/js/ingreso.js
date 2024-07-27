@@ -27,6 +27,7 @@ function listaQuimico() {
               </tr>`;
       });
       $("#mostrar").html(html);
+      initPaginador(5, "mostrar", "paginador-ingreso"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -58,6 +59,7 @@ function Buscarquimico(query) {
                   </tr>`;
       });
       $("#mostrar").html(template);
+      initPaginador(5, "mostrar", "paginador-ingreso"); 
     },
     error: function (error) {
       console.log("ERROR EN LA PETICION: " + error);

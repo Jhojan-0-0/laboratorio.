@@ -22,8 +22,12 @@
   <!-- CSS->SIDEBAR -->
   <link rel="stylesheet" href="<?php echo constant('URL') . 'public/css/sidebar.css' ?>">
 
-  <script src="<?php echo constant('URL') . 'public/js/core/jquery.min.js' ?>"></script>
+  <!-- <script src="<?php echo constant('URL') . 'public/js/core/jquery.min.js' ?>"></script> -->
+  <script src="<?php echo constant('URL') . 'public/foundation/js/jquery.js' ?>"></script>
   <script src="<?php echo constant('URL') . 'public/foundation/js/foundation.js' ?>"></script>
+  <script src="<?php echo constant('URL') . 'public/js/validation.js' ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo constant('URL') ?>public/assets/Assets/js/jpaginate.js"></script>
+  
 </head>
  <!-- Diseño del panel de administracion en la parte superior-->
 <body>

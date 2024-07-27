@@ -26,6 +26,7 @@ function listaComunes() {
             </tr>`;
       });
       $("#quimicos-comunes").html(html);
+      initPaginador(5, "quimicos-comunes", "paginador-quimicos-comunes"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -54,6 +55,7 @@ function listafiscalizados() {
             </tr>`;
       });
       $("#quimicos-fiscalizados").html(html);
+      initPaginador(5, "quimicos-fiscalizados", "paginador-quimicos-fiscalizados"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -82,6 +84,7 @@ function listaacidos() {
             </tr>`;
       });
       $("#quimicos-acidos").html(html);
+      initPaginador(5, "quimicos-acidos", "paginador-quimicos-acidos"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -110,6 +113,7 @@ function listabasicos() {
             </tr>`;
       });
       $("#quimicos-basicos").html(html);
+      initPaginador(5, "quimicos-basicos", "paginador-quimicos-basicos"); 
     },
     error: function (error) {
       console.log("error:" + error);

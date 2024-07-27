@@ -1,5 +1,5 @@
 <?php require ('views/header.php');?>
-
+<link rel="stylesheet" href="<?php echo constant('URL') ?>public/assets/Assets/css/jpaginate.css">
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Lista de Quimicos Comunes</h3>
@@ -26,6 +26,7 @@
 			<tbody id="quimicos-comunes">
 			</tbody>
 		</table>
+		<div id="paginador-quimicos-comunes"></div>
 	</div>
 	<div class="boton text-center">
 	<a href="<?php echo constant('URL') ?>galeria" class="button alert">Volver</a>

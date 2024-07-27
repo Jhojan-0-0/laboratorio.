@@ -4,9 +4,9 @@ define('URL', 'http://localhost/laboratorio/');
 
 define('COMPANY', 'Laboratorio UNA-PUNO');
 define('HOST', 'localhost');
-define('USER', 'jhojan');
+define('USER', 'jersson');
 define('DB', 'laboratorioUNA');
-define('PASSWORD', 'jhojan123');
+define('PASSWORD', 'jersson');
 define('CHATSET', 'utf8');
 
 date_default_timezone_set('America/Lima');

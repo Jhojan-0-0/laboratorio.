@@ -1,7 +1,7 @@
 <?php require ('views/header.php');?>
 
 <link rel="stylesheet" href="./public/css/index.css">
-
+<link rel="stylesheet" href="<?php echo constant('URL') ?>public/assets/Assets/css/jpaginate.css">
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Entrega de quimicos</h3>

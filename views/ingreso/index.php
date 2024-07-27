@@ -1,7 +1,7 @@
 <?php require('views/header.php'); ?>
 
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/ingreso.css">
-
+<link rel="stylesheet" href="<?php echo constant('URL') ?>public/assets/Assets/css/jpaginate.css">
 <div class="grid-container">
     <div class="grid-x align-spaced">
         <h3>Ingreso de químicos</h3>
@@ -41,6 +41,7 @@
 				<!-- Los datos de los qumicos se mostran aqui-->
 			</tbody>
 		</table>
+		<div id="paginador-ingreso"></div>
 	</div>
 </div>
 

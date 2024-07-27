@@ -57,6 +57,7 @@ $(document).ready(function () {
               </tr>;`;
         });
         $("#entrega-quimico").html(template);
+        initPaginador(5, "entrega-quimico", "entrega-paginador"); 
       },
       error: function (error) {
         console.log("ERROR EN LA PETICION: " + error);
