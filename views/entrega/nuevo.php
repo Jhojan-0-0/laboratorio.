@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/entrega.css">
   <div class="grid-container">
 
-  <form action="<?php echo constant('URL')?>entrega/create" method="post">
+  <form action="<?php echo constant('URL') ?>entrega/create" method="POST" enctype="multipart/form-data" id="quimicoEntr">
     <div class="grid-x grid-padding-x">
       <div class="cell">
         <h4 class="header">Nuevo Entrega de producto Químico</h4>
@@ -52,7 +52,7 @@
           <input type="text" name="txtmarca" id="txtmarca" placeholder="">
         </label>
       </div>
-      <div class="cell small-12 medium-6 large-6">
+      <div class="cell small-12 medium-6 large-5">
         <label for="identidad">Facultad / Entidad
         <select name="identidad" id="identidad">
             <option value="" selected disabled>Seleccione...</option>
@@ -70,6 +70,10 @@
 
         </label>
       </div>
+      <div class="cell small-12 medium-6 large-1">
+        <h8>Registrar</h8>
+      <a class="button success rounded-border" href="<?php echo constant('URL');?>entrega/entidad">Nuevo</a>
+      </div>
     </div>
     <div class="grid-x grid-padding-x">
       <div class="cell small-12 medium-6 large-6">
@@ -84,7 +88,7 @@
       </div>
     </div>
     <div class="cell small-12 medium-6 large-6 text-center">
-          <button class="button button-custom" type="submit" name="btnguardar" id="btnguardar">Guardar</button>
+    <button class="button success" type="submit">Registrar</button>
           <a href="<?php echo constant('URL') ?>entrega" class="button alert">Volver</a>
         </div>        
 
@@ -120,5 +124,7 @@
       });
     });
   </script>
+
+<script src="<?php echo constant('URL'); ?>public/js/entrega.js"></script> 
 
 <?php require ('views/footer.php');?>

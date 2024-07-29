@@ -24,6 +24,11 @@ class Entrega extends Controller
 		$this->view->Render('entrega/nuevo');
 	}
 
+	function entidad()
+	{
+		$this->view->Render('entrega/entidad');
+	}
+
 	function create()
 	{
 		$idquimico = $_POST['idquimico'];
@@ -34,14 +39,11 @@ class Entrega extends Controller
 		$marca = $_POST['txtmarca'];
 		$identidad = $_POST['identidad'];
 		$docente = $_POST['txtnombreDocente'];
-		$res = $this->model->Guardar($idquimico, $fecEntrega,$codquimico,$cantidad,$descripcion,$marca,$identidad,$docente);
-		if($res){
-			$msg= "Guardado Exitoso ";
+		if($this->model->Guardar($idquimico, $fecEntrega,$codquimico,$cantidad,$descripcion,$marca,$identidad,$docente)){
+			echo "REGISTRO EXITOSO";
 		}else{
-			$msg =  "Error";
-		}
-		$this->view->mensaje = $msg;
-		$this->view->Render('entrega/index');
+			echo "ERROR AL INSERTAR";
+		}	
 	}
 	
 	public function getEntrega(){
@@ -89,5 +91,18 @@ class Entrega extends Controller
 			);
 		}
 		echo json_encode($json);
+	}
+
+	function entidadCreate()
+	{
+		$entidad = $_POST['entidad'];
+		$sigla = $_POST['sigla'];
+		$localidad = $_POST['localidad'];
+		$fecCreate = $_POST['fecCreate'];
+		if($this->model->createEntidad($entidad, $sigla,$localidad,$fecCreate)){
+			echo "REGISTRO EXITOSO";
+		}else{
+			echo "ERROR AL INSERTAR";
+		}	
 	}
 }

@@ -28,7 +28,7 @@
 					<th>Quimico</th>
 					<th>Fecha de Entrega</th>
 					<th>Codigo Quimico</th>
-					<th>Cantidad Quimicos</th>
+					<th>Cantidad Quimico</th>
 					<th>Descripcion</th>
 					<th>Marca</th>
 					<th>Facultad / Entidad</th>

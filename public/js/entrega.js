@@ -1,6 +1,8 @@
 $(document).ready(function () {
     listaEntrega();
     BuscarsEntregas();
+    postEntrega();
+    postEntidad();
   });
 
   function listaEntrega() {
@@ -57,7 +59,7 @@ $(document).ready(function () {
               </tr>;`;
         });
         $("#entrega-quimico").html(template);
-        initPaginador(5, "entrega-quimico", "entrega-paginador"); 
+        initPaginador(10, "entrega-quimico", "entrega-paginador"); 
       },
       error: function (error) {
         console.log("ERROR EN LA PETICION: " + error);
@@ -68,3 +70,51 @@ $(document).ready(function () {
   $("#buscarEntrega").on("input", function () {
     BuscarsEntregas($(this).val());
   });
+
+  function postEntrega() {
+    $("#quimicoEntr").on("submit", function (event) {
+      event.preventDefault();
+      var formData = new FormData(this);
+      $.ajax({
+        url: $(this).attr("action"),
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+          confirmation(1, "Entrega guardado ¡Exitosamente!");
+          //alert("Eliminado correctamente");
+        },
+        error: function (error) {
+          confirmation(0, "ERROR AL REGISTRAR ENTREGA");
+          //console.error("Error:", error);
+          // Aquí puedes manejar los errores
+          //alert("Hubo un error al enviar el formulario.");
+        },
+      });
+    });
+  }
+
+  function postEntidad() {
+    $("#entidadCrt").on("submit", function (event) {
+      event.preventDefault();
+      var formData = new FormData(this);
+      $.ajax({
+        url: $(this).attr("action"),
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+          confirmation(1, "Entidad guardado ¡Exitosamente!");
+          //alert("Eliminado correctamente");
+        },
+        error: function (error) {
+          confirmation(0, "ERROR AL REGISTRAR ENTIDAD");
+          //console.error("Error:", error);
+          // Aquí puedes manejar los errores
+          //alert("Hubo un error al enviar el formulario.");
+        },
+      });
+    });
+  }

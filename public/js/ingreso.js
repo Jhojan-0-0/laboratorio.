@@ -2,6 +2,8 @@ $(document).ready(function () {
   listaQuimico();
   eliminar();
   Buscarquimico();
+  postQuimico();
+  updateQuimico();
 });
 
 function listaQuimico() {
@@ -22,7 +24,7 @@ function listaQuimico() {
                   <td>${element.tipo}</td>
                   <td>${element.clasificacion}</td>
                   <td>${element.formula}</td>
-                  <td><a class="button" href="http://localhost/katariPrice/personal/detalles/${element.idpersonal}">Detalles</a></td>
+                  <td><a class="button" href="http://localhost/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
                   <td><button class="button alert" id="eliminar">Eliminar</button></td>
               </tr>`;
       });
@@ -54,12 +56,12 @@ function Buscarquimico(query) {
                       <td>${element.tipo}</td>
                       <td>${element.clasificacion}</td>
                       <td>${element.formula}</td>
-                      <td><button id="tasks" class="tasks-edit success button">Informacion</button></td>
+                      <td><a class="button" href="http://localhost/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
                       <td><button class="button alert" id="eliminar">Eliminar</button></td>
                   </tr>`;
       });
       $("#mostrar").html(template);
-      initPaginador(5, "mostrar", "paginador-ingreso"); 
+      initPaginador(10, "mostrar", "paginador-ingreso"); 
     },
     error: function (error) {
       console.log("ERROR EN LA PETICION: " + error);
@@ -78,14 +80,64 @@ function eliminar() {
       url: "http://localhost/laboratorio/ingreso/delete/",
       data: { id },
       success: function (response) {
-        // confirmation(1, "Eliminado Correctamente");
-        alert("Eliminado correctamente");
+        confirmation(1, "Eliminado Correctamente");
+        //alert("Eliminado correctamente");
         listaQuimico();
       },
       error: function (error) { 
-        // confirmation(0, "ERROR AL ELIMINAR");
-        console.log("error:" + error);
+        confirmation(0, "ERROR AL ELIMINAR");
+        // console.log("error:" + error);
       },
     });
   });
+}
+
+// CREAR NUEVO QUIMICO
+function postQuimico() {
+  $("#quimicoIngr").on("submit", function (event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+      url: $(this).attr("action"),
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        confirmation(1, "Quimico ingresado ¡Exitosamente!");
+        //alert("Eliminado correctamente");
+      },
+      error: function (error) {
+        confirmation(0, "ERROR AL CREAR");
+        //console.error("Error:", error);
+        // Aquí puedes manejar los errores
+        //alert("Hubo un error al enviar el formulario.");
+      },
+    });
+  });
+}
+
+function updateQuimico() {
+  // $("#update-quimico").on("submit", function (event) {
+  //   event.preventDefault();
+  //   var formData = new FormData(this);
+  //   var miid = document.getElementById("idquimico");
+  //   $.ajax({
+  //     url: "http://localhost/laboratorio/ingreso/updateQuimico",
+  //     type: "POST",
+  //     data: {id:miid},
+  //     processData: false,
+  //     contentType: false,
+  //     success: function (response) {
+  //       //confirmation(1, "Actualizado Correctamente");
+  //       console.log("actualizado correctamente");
+  //       // alert("Personal actualizado correctamente");
+  //     },
+  //     error: function (error) {
+  //       //confirmation(0, "ERROR AL ACTUALIZAR ");
+  //       console.error("Error:", error);
+  //       // alert("Hubo un error al enviar el formulario.");
+  //     },
+  //   });
+  // });
 }

@@ -11,12 +11,18 @@ class IngresoModel extends Model{
         return $data;
     }
 
-    public function registrarQuimico($nombre, $concentracion, $tipoEnvace, $tamanio, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $foto, $tipo, $precio, $clasificacion, $formula)
+    public function GetQuimicoId($id)
     {
-        $sql = "INSERT INTO quimicos_registro (nombre, concentracion, tipoEnvace, tamanio, marca, peso, cantidad, feFabricacion, feVencimiento, codProducto, advertencia, foto, tipo, precio, clasificacion, formula) 
-                VALUES ('$nombre', '$concentracion', '$tipoEnvace', '$tamanio', '$marca', '$peso', '$cantidad', '$feFabricacion', '$feVencimiento', '$codProducto', '$advertencia', '$foto', '$tipo', '$precio', '$clasificacion', '$formula')";
-        $data = $this->conn->ConsultaSin($sql);
+        $sql = "SELECT * FROM quimicos_registro WHERE idquimico = '$id'";
+        $data = $this->conn->ConsultaArray($sql);
         return $data;
+    }
+
+    public function CreateQuimico($nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $tipo, $precio, $clasificacion, $mililitros, $formula, $foto)
+    {
+        $sql = "INSERT INTO `laboratorioUNA`.`quimicos_registro` (`nombre`, `concentracion`, `tipoEnvase`, `tamano`, `marca`, `peso`, `cantidad`, `feFabricacion`, `feVencimiento`, `codProducto`, `advertencia`, `tipo`, `precio`, `clasificacion`, `mililitros`, `formula`, `foto`) VALUES ('$nombre', '$concentracion', '$tipoEnvase', '$tamano', '$marca', '$peso', '$cantidad', '$feFabricacion', '$feVencimiento', '$codProducto', '$advertencia', '$tipo', '$precio', '$clasificacion', '$mililitros', '$formula', '$foto');";
+        $res = $this->conn->ConsultaSin($sql);
+        return $res;
     }
 
     public function Buscarquimico($query){
@@ -31,6 +37,14 @@ class IngresoModel extends Model{
         $res = $this->conn->ConsultaSin($sql);
         return $res;
     }   
+
+    public function UpdateQuimico($idquimico, $nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $foto, $tipo, $precio, $clasificacion, $mililitros, $formula)
+    {
+        $sql = "UPDATE `laboratorioUNA`.`quimicos_registro` SET `nombre` = '$nombre', `concentracion` = '$concentracion', `tipoEnvase` = '$tipoEnvase', `tamano` = '$tamano', `marca` = '$marca', `peso` = '$peso', `cantidad` = '$cantidad', `feFabricacion` = '$feFabricacion', `feVencimiento` = '$feVencimiento', `codProducto` = '$codProducto', `advertencia` = '$advertencia', `tipo` = '$tipo', `precio` = '$precio', `clasificacion` = '$clasificacion', `mililitros` = '$mililitros', `formula` = '$formula' WHERE (`idquimico` = '$idquimico');";
+
+        $res = $this->conn->ConsultaSin($sql);
+        return $res;
+    }
 }
 
 ?>
