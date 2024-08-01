@@ -66,7 +66,7 @@ class Ingreso extends Controller
 			$foto = "sin foto";
 		}
 		if($this->model->CreateQuimico($nombre,$concentracion,$tipoEnvase,$tamano,$marca,$peso,$cantidad,$feFabricacion,$feVencimiento,$codProducto,$advertencia,$tipo,$precio,$clasificacion,$mililitros,$formula,$res)){
-			echo "REGISTRO EXITOSO";
+			echo $this->model->conn->conn->insert_id;
 		}else{
 			echo "ERROR AL INSERTAR";
 		}	
@@ -101,11 +101,11 @@ class Ingreso extends Controller
 		{
 			$msg= "REGISTRO EXITOSO";
 			$this->view->data = $msg;
-			$this->view->Render('ingreso/informacion');
+			$this->view->Render('ingreso/index');
 		}else{
 			$msg = "ERROR AL INSERTAR";
 			$this->view->data = $msg;
-			$this->view->Render('ingreso/informacion');
+			$this->view->Render('ingreso/index');
 		}	
 	}
 

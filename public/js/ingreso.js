@@ -1,3 +1,5 @@
+var host = "localhost";
+
 $(document).ready(function () {
   listaQuimico();
   eliminar();
@@ -9,7 +11,7 @@ $(document).ready(function () {
 function listaQuimico() {
   $.ajax({
     type: "GET",
-    url: `http://localhost/laboratorio/ingreso/listarQuimico`,
+    url: `http://${host}/laboratorio/ingreso/listarQuimico`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -24,12 +26,12 @@ function listaQuimico() {
                   <td>${element.tipo}</td>
                   <td>${element.clasificacion}</td>
                   <td>${element.formula}</td>
-                  <td><a class="button" href="http://localhost/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
+                  <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
                   <td><button class="button alert" id="eliminar">Eliminar</button></td>
               </tr>`;
       });
       $("#mostrar").html(html);
-      initPaginador(5, "mostrar", "paginador-ingreso"); 
+      initPaginador(15, "mostrar", "paginador-ingreso"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -40,7 +42,7 @@ function listaQuimico() {
 function Buscarquimico(query) {
   $.ajax({
     type: "GET",
-    url: "http://localhost/laboratorio/ingreso/buscarquimico",
+    url: `http://${host}/laboratorio/ingresobuscarquimico`,
     data: { query: query },
     success: function (response) {
       mostrar = JSON.parse(response);
@@ -56,12 +58,12 @@ function Buscarquimico(query) {
                       <td>${element.tipo}</td>
                       <td>${element.clasificacion}</td>
                       <td>${element.formula}</td>
-                      <td><a class="button" href="http://localhost/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
+                      <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
                       <td><button class="button alert" id="eliminar">Eliminar</button></td>
                   </tr>`;
       });
       $("#mostrar").html(template);
-      initPaginador(10, "mostrar", "paginador-ingreso"); 
+      initPaginador(15, "mostrar", "paginador-ingreso"); 
     },
     error: function (error) {
       console.log("ERROR EN LA PETICION: " + error);
@@ -77,7 +79,7 @@ function eliminar() {
     let id = $(this).parent().parent().attr("id");
     $.ajax({
       type: "POST",
-      url: "http://localhost/laboratorio/ingreso/delete/",
+      url: `http://${host}/laboratorio/ingreso/delete/`,
       data: { id },
       success: function (response) {
         confirmation(1, "Eliminado Correctamente");

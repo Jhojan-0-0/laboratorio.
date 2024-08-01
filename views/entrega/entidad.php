@@ -41,6 +41,20 @@
   </form>
   </div>
 
+  <!-- Escrip para que la fecha de creacion se coloque automaticamente -->
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const fechaCreateInput = document.getElementById('fecCreate');
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      
+      const todayFormatted = `${year}-${month}-${day}`;
+      fechaCreateInput.value = todayFormatted;
+    });
+  </script>
+
 <script src="<?php echo constant('URL'); ?>public/js/entrega.js"></script> 
 
 <?php require ('views/footer.php');?>

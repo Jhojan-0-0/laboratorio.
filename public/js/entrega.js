@@ -1,3 +1,5 @@
+var host = "localhost";
+
 $(document).ready(function () {
     listaEntrega();
     BuscarsEntregas();
@@ -5,10 +7,10 @@ $(document).ready(function () {
     postEntidad();
   });
 
-  function listaEntrega() {
+  function listaEntrega() { 
     $.ajax({
       type: "GET",
-      url: `http://localhost/laboratorio/entrega/getEntrega`,
+      url: `http://${host}/laboratorio/entrega/getEntrega`,
       success: function (response) {
         let data = JSON.parse(response);
         let html = "";
@@ -28,7 +30,7 @@ $(document).ready(function () {
         });
         $("#entrega-quimico").html(html);
               // function de paginador
-        initPaginador(5, "entrega-quimico", "entrega-paginador"); 
+        initPaginador(15, "entrega-quimico", "entrega-paginador"); 
       },
       error: function (error) {
         console.log("error:" + error);
@@ -39,7 +41,7 @@ $(document).ready(function () {
   function BuscarsEntregas(query) {
     $.ajax({
       type: "GET",
-      url: "http://localhost/laboratorio/entrega/buscarEntregas",
+      url: `http://${host}/laboratorio/entrega/buscarEntregas`,
       data: { query: query },
       success: function (response) {
         mostrar = JSON.parse(response);
@@ -59,7 +61,7 @@ $(document).ready(function () {
               </tr>;`;
         });
         $("#entrega-quimico").html(template);
-        initPaginador(10, "entrega-quimico", "entrega-paginador"); 
+        initPaginador(15, "entrega-quimico", "entrega-paginador"); 
       },
       error: function (error) {
         console.log("ERROR EN LA PETICION: " + error);

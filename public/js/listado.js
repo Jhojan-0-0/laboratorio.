@@ -1,3 +1,5 @@
+var host = "localhost";
+
 $(document).ready(function () {
   listaComunes();
   listafiscalizados();
@@ -8,7 +10,7 @@ $(document).ready(function () {
 function listaComunes() {
   $.ajax({
     type: "GET",
-    url: `http://localhost/laboratorio/listado/getComunes`,
+    url: `http://${host}/laboratorio/listado/getComunes`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -26,7 +28,7 @@ function listaComunes() {
             </tr>`;
       });
       $("#quimicos-comunes").html(html);
-      initPaginador(5, "quimicos-comunes", "paginador-quimicos-comunes"); 
+      initPaginador(15, "quimicos-comunes", "paginador-quimicos-comunes"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -37,7 +39,7 @@ function listaComunes() {
 function listafiscalizados() {
   $.ajax({
     type: "GET",
-    url: `http://localhost/laboratorio/listado/getFiscalizados`,
+    url: `http://${host}/laboratorio/listado/getFiscalizados`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -55,7 +57,7 @@ function listafiscalizados() {
             </tr>`;
       });
       $("#quimicos-fiscalizados").html(html);
-      initPaginador(5, "quimicos-fiscalizados", "paginador-quimicos-fiscalizados"); 
+      initPaginador(15, "quimicos-fiscalizados", "paginador-quimicos-fiscalizados"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -66,7 +68,7 @@ function listafiscalizados() {
 function listaacidos() {
   $.ajax({
     type: "GET",
-    url: `http://localhost/laboratorio/listado/getAcidos`,
+    url: `http://${host}/laboratorio/listado/getAcidos`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -84,7 +86,7 @@ function listaacidos() {
             </tr>`;
       });
       $("#quimicos-acidos").html(html);
-      initPaginador(5, "quimicos-acidos", "paginador-quimicos-acidos"); 
+      initPaginador(15, "quimicos-acidos", "paginador-quimicos-acidos"); 
     },
     error: function (error) {
       console.log("error:" + error);
@@ -95,7 +97,7 @@ function listaacidos() {
 function listabasicos() {
   $.ajax({
     type: "GET",
-    url: `http://localhost/laboratorio/listado/getBasicos`,
+    url: `http://${host}/laboratorio/listado/getBasicos`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -113,7 +115,7 @@ function listabasicos() {
             </tr>`;
       });
       $("#quimicos-basicos").html(html);
-      initPaginador(5, "quimicos-basicos", "paginador-quimicos-basicos"); 
+      initPaginador(15, "quimicos-basicos", "paginador-quimicos-basicos"); 
     },
     error: function (error) {
       console.log("error:" + error);

@@ -10,6 +10,7 @@
 	</div>
 	<div class="grid-x grid-padding-x text-center">
     <div class="cell small-12 medium-6 large-6">
+	<h5>Busqueda por Nombre, Entidad, Fecha, Codigo y Docente</h5>
         <input type="text" id="buscarEntrega" class="rounded-border" placeholder="Buscar...">
     </div>
     <div class="cell small-12 medium-6 large-6">

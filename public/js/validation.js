@@ -50,11 +50,11 @@ function confirmation(type, mensaje,reload = 0) {
     $("#modal-confirmacion-global").fadeOut();
     $("#modal-error-global").fadeOut();
     // if(reload == 1){
-    //   window.location.href = 'http://localhost/katariPrice/listado';
+    //   window.location.href = 'http://localhost//listado';
       //window.location.reload();
     // }
     // if(reload == 2){
-    //   window.location.href = 'http://localhost/katariPrice/clientes';
+    //   window.location.href = 'http://localhost//clientes';
       //window.location.reload();
     //}
     // $("#modal-confirmacion-global").hide();

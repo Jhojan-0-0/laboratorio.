@@ -3,18 +3,18 @@
     <div class="grid-x align-spaced">
         <h2>Informacion Quimico: <?php echo @$this->data['nombre'] ?></h2>
         <?php
-        echo $this->data;
+        echo $this->msg;
         ?>
     </div>
     <form action="<?php echo constant('URL') ?>ingreso/updateQuimico" method="POST" enctype="multipart/form-data" id="update-quimico">
         <div class="grid-x grid-margin-x grid-margin-y callout">
             <div class="cell large-12 grid-x text-center callout">
+                    <div class="cell">
+                        <img src="<?php echo @$this->data['foto']; ?>" alt="<?php echo @$this->data['nombre'] ?>">
+                        <input type="text" id="fotoActual" name="fotoActual" value="<?php echo @$this->data['foto']; ?>" hidden style="display:none">
+                    </div>
                 <div class="cell">
-                    <img src="<?php echo @$this->data['foto']; ?>" alt="<?php echo @$this->data['nombre'] ?>">
-                    <input type="text" id="fotoActual" name="fotoActual" value="<?php echo @$this->data['foto']; ?>" hidden style="display:none">
-                </div>
-                <div class="cell">
-                    <label for="foto" class="button success">Subir Nueva Foto
+                    <label for="foto" class="button success">Subir Nueva Foto   
                         <input type="file" id="foto" name="foto" hidden style="display:none">
                     </label>
                 </div>
@@ -102,7 +102,7 @@
                 </label>
             </div>
             <div class="cell small-12 medium-12 large-8 text-center">
-                    <button class="button success">Actualizar</button>
+                    <button class="button success" id="btnActualizar" type="button">Actualizar</button>
             </div>
         </div>
     </form>
@@ -111,11 +111,30 @@
         <a href="<?php echo constant('URL') ?>ingreso" class="button alert">Volver</a>
     </div>
 </div>
+
+<!-- Escrip para que el boton actualizar no aga ninguna funcion sin habilitar la edicion -->
 <script>
     $("input").prop("disabled", true);
+    let edicionHabilitada = false;
+
     $("#editar").click(function () {
         $("input").prop("disabled", false);
+        edicionHabilitada = true;
+    });
+
+    $("#btnActualizar").click(function () {
+        if (edicionHabilitada) {
+            $("#update-quimico").submit();
+        } 
     });
 </script>
 <script src="<?php echo constant('URL') ?>public/js/ingreso.js"></script>
+
+ <!-- css para que la vista de la imagen este ajustado -->
+<style>
+    .cell img {
+      max-width: 600px; /* Ajusta el tamaño máximo según tus necesidades */
+        max-height: 600px;
+    }
+</style>
 <?php require ('views/footer.php'); ?>
