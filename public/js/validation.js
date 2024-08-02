@@ -51,7 +51,7 @@ function confirmation(type, mensaje,reload = 0) {
     $("#modal-error-global").fadeOut();
     // if(reload == 1){
     //   window.location.href = 'http://localhost//listado';
-      //window.location.reload();
+    window.location.reload();
     // }
     // if(reload == 2){
     //   window.location.href = 'http://localhost//clientes';
@@ -59,7 +59,7 @@ function confirmation(type, mensaje,reload = 0) {
     //}
     // $("#modal-confirmacion-global").hide();
     // $("#modal-error-global").hide();
-  });
+  }); 
 }
 
 

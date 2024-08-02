@@ -2,17 +2,15 @@
 <div class="grid-container">
     <div class="grid-x align-spaced">
         <h2>Informacion Quimico: <?php echo @$this->data['nombre'] ?></h2>
-        <?php
-        echo $this->msg;
-        ?>
     </div>
     <form action="<?php echo constant('URL') ?>ingreso/updateQuimico" method="POST" enctype="multipart/form-data" id="update-quimico">
         <div class="grid-x grid-margin-x grid-margin-y callout">
             <div class="cell large-12 grid-x text-center callout">
-                    <div class="cell">
-                        <img src="<?php echo @$this->data['foto']; ?>" alt="<?php echo @$this->data['nombre'] ?>">
-                        <input type="text" id="fotoActual" name="fotoActual" value="<?php echo @$this->data['foto']; ?>" hidden style="display:none">
-                    </div>
+                <div class="cell">
+                    <img src="<?php echo @$this->data['foto']; ?>" alt="<?php echo @$this->data['nombre'] ?>">
+                    <input type="text" id="fotoActual" name="fotoActual" value="<?php echo @$this->data['foto']; ?>"
+                        hidden style="display:none">
+                </div>
                 <div class="cell">
                     <label for="foto" class="button success">Subir Nueva Foto   
                         <input type="file" id="foto" name="foto" hidden style="display:none">

@@ -40,7 +40,7 @@ class IngresoModel extends Model{
 
     public function UpdateQuimico($idquimico, $nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $foto, $tipo, $precio, $clasificacion, $mililitros, $formula)
     {
-        $sql = "UPDATE `laboratorioUNA`.`quimicos_registro` SET `nombre` = '$nombre', `concentracion` = '$concentracion', `tipoEnvase` = '$tipoEnvase', `tamano` = '$tamano', `marca` = '$marca', `peso` = '$peso', `cantidad` = '$cantidad', `feFabricacion` = '$feFabricacion', `feVencimiento` = '$feVencimiento', `codProducto` = '$codProducto', `advertencia` = '$advertencia', `tipo` = '$tipo', `precio` = '$precio', `clasificacion` = '$clasificacion', `mililitros` = '$mililitros', `formula` = '$formula' WHERE (`idquimico` = '$idquimico');";
+        $sql = "UPDATE `laboratorioUNA`.`quimicos_registro` SET `nombre` = '$nombre', `concentracion` = '$concentracion', `tipoEnvase` = '$tipoEnvase', `tamano` = '$tamano', `marca` = '$marca', `peso` = '$peso', `cantidad` = '$cantidad', `feFabricacion` = '$feFabricacion', `feVencimiento` = '$feVencimiento', `codProducto` = '$codProducto', `advertencia` = '$advertencia', `foto` = '$foto', `tipo` = '$tipo', `precio` = '$precio', `clasificacion` = '$clasificacion', `mililitros` = '$mililitros', `formula` = '$formula' WHERE (`idquimico` = '$idquimico');";
 
         $res = $this->conn->ConsultaSin($sql);
         return $res;

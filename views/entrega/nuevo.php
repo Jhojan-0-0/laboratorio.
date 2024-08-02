@@ -53,7 +53,7 @@
     <div class="grid-x grid-padding-x">
       <div class="cell small-12 medium-6 large-6">
         <label for="txtnombreDocente">Nombre Docente
-          <input type="text" name ="txtnombreDocente" id="txtnombreDocente">
+          <input type="text" name ="txtnombreDocente" id="txtnombreDocente" required>
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">

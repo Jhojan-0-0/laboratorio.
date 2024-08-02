@@ -12,19 +12,19 @@
       <div class="grid-x grid-padding-x">
       <div class="cell small-12 medium-6 large-6">
         <label for="entidad">Entidad o facultad
-          <input type="text" name="entidad" id="entidad">
+          <input type="text" name="entidad" id="entidad" required>
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">
         <label for="sigla">Siglas
-          <input type="text" name ="sigla" id="sigla">
+          <input type="text" name ="sigla" id="sigla" required>
         </label>
       </div>
     </div>
     <div class="grid-x grid-padding-x">
       <div class="cell small-12 medium-6 large-6">
         <label for="localidad">Localidad
-          <input type="text" name ="localidad" id="localidad">
+          <input type="text" name ="localidad" id="localidad" required>
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">

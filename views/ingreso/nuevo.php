@@ -12,7 +12,7 @@
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-6 large-4">
             <label for="nombre">Nombre
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre" required>
             </label>
       </div>
       <div class="cell small-12 medium-6 large-4">
@@ -22,7 +22,7 @@
       </div>
       <div class="cell small-12 medium-6 large-4">
         <label for="marca">Marca
-          <input type="text" name="marca" id="marca">
+          <input type="text" name="marca" id="marca" required>
         </label>
       </div>
     </div>
@@ -119,7 +119,7 @@
         </div>
       <div class="cell small-12 medium-6 large-4">
         <label for="formula">Formula de Químico
-          <input type="text" name="formula" id="formula">
+          <input type="text" name="formula" id="formula" required>
         </label>
       </div>
     </div>

@@ -7,6 +7,10 @@
         <h3>Ingreso de químicos</h3>
     </div>
 
+	<?php
+    echo $this->data;
+    ?>
+
 	<div class="grid-x grid-padding-x text-center">
     <div class="cell small-12 medium-6 large-6">
 	<h5>Busqueda por Nombre, Código y Formula</h5>

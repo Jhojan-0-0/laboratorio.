@@ -42,7 +42,7 @@ function listaQuimico() {
 function Buscarquimico(query) {
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio/ingresobuscarquimico`,
+    url: `http://${host}/laboratorio/ingreso/buscarquimico`,
     data: { query: query },
     success: function (response) {
       mostrar = JSON.parse(response);
@@ -120,26 +120,25 @@ function postQuimico() {
 }
 
 function updateQuimico() {
-  // $("#update-quimico").on("submit", function (event) {
-  //   event.preventDefault();
-  //   var formData = new FormData(this);
-  //   var miid = document.getElementById("idquimico");
-  //   $.ajax({
-  //     url: "http://localhost/laboratorio/ingreso/updateQuimico",
-  //     type: "POST",
-  //     data: {id:miid},
-  //     processData: false,
-  //     contentType: false,
-  //     success: function (response) {
-  //       //confirmation(1, "Actualizado Correctamente");
-  //       console.log("actualizado correctamente");
-  //       // alert("Personal actualizado correctamente");
-  //     },
-  //     error: function (error) {
-  //       //confirmation(0, "ERROR AL ACTUALIZAR ");
-  //       console.error("Error:", error);
-  //       // alert("Hubo un error al enviar el formulario.");
-  //     },
-  //   });
-  // });
+  $("#update-quimico").on("submit", function (event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+      url: $(this).attr("action"),
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        confirmation(1, "Actualizado Correctamente");
+        // console.log("actualizado correctamente");
+        // alert("Personal actualizado correctamente");
+      },
+      error: function (error) {
+        confirmation(0, "ERROR AL ACTUALIZAR EL PERSONAL");
+        // console.error("Error:", error);
+        // alert("Hubo un error al enviar el formulario Personal.");
+      },
+    });
+  });
 }

@@ -91,21 +91,30 @@ class Ingreso extends Controller
 		$clasificacion = $_POST['clasificacion'];
 		$mililitros = $_POST['mililitros'];
 		$formula = $_POST['formula'];
+		$foto = $_FILES['foto'];
+		$res = $this->Foto($foto,$nombre,$formula);
+		if($res==false){
+			$res = $_POST['fotoActual'];
+		}
 		//echo $foto = $_FILES['foto']['name']."<br>";
 		//echo $res = $this->Foto($foto,$nombre,$formula);
 
 		// if($res==false){
 		// 	$res = $_POST['fotoActual'];
 		// }
-		if($this->model->UpdateQuimico($idquimico, $nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, '', $tipo, $precio, $clasificacion, $mililitros, $formula))
+		if($this->model->UpdateQuimico($idquimico, $nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $res, $tipo, $precio, $clasificacion, $mililitros, $formula,))
 		{
-			$msg= "REGISTRO EXITOSO";
-			$this->view->data = $msg;
-			$this->view->Render('ingreso/index');
+			echo "EXITO AL ACTUALIZAR";
+			// $msg= "ACTUALIZACION EXITOSO";
+			// $this->view->data = $msg;
+			// $this->view->Render('ingreso/index');
+			// header("location: http://localhost/laboratorio/ingreso");
 		}else{
-			$msg = "ERROR AL INSERTAR";
-			$this->view->data = $msg;
-			$this->view->Render('ingreso/index');
+			echo "ERROR AL ACTUALIZAR";
+			// $msg = "ERROR AL ACTUALIZACION";
+			// $this->view->data = $msg;
+			// $this->view->Render('ingreso/index');
+			// header("location: http://localhost/laboratorio/ingreso");
 		}	
 	}
 
