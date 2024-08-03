@@ -26,8 +26,8 @@ function listaQuimico() {
                   <td>${element.tipo}</td>
                   <td>${element.clasificacion}</td>
                   <td>${element.formula}</td>
-                  <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
-                  <td><button class="button alert" id="eliminar">Eliminar</button></td>
+                  <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idquimico}" style="border-radius: 8px;">Informacion</a></td>
+                  <td><button class="button alert" id="eliminar" style="border-radius: 8px;">Eliminar</button></td>
               </tr>`;
       });
       $("#mostrar").html(html);
@@ -58,8 +58,8 @@ function Buscarquimico(query) {
                       <td>${element.tipo}</td>
                       <td>${element.clasificacion}</td>
                       <td>${element.formula}</td>
-                      <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idquimico}">Informacion</a></td>
-                      <td><button class="button alert" id="eliminar">Eliminar</button></td>
+                      <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idquimico}" style="border-radius: 8px;">Informacion</a></td>
+                      <td><button class="button alert" id="eliminar" style="border-radius: 8px;">Eliminar</button></td>
                   </tr>`;
       });
       $("#mostrar").html(template);

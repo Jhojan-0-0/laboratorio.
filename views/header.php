@@ -61,7 +61,7 @@
           </div>
           <div class="top-bar-right">
             <ul class="menu">
-              <li><a href="<?php echo constant('URL'); ?>login/logout">Salir</a></li>
+              <li><a href="<?php echo constant('URL'); ?>login/logout"> <i class="fas fa-sign-out-alt"> </i>Salir</a></li>
             </ul>
           </div>
         </div>

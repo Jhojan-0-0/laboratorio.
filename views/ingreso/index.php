@@ -1,23 +1,21 @@
 <?php require('views/header.php'); ?>
-
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/ingreso.css">
+<br>
+<link rel="stylesheet" href="./public/css/index.css">
 <link rel="stylesheet" href="<?php echo constant('URL') ?>public/assets/Assets/css/jpaginate.css">
 <div class="grid-container">
     <div class="grid-x align-spaced">
         <h3>Ingreso de químicos</h3>
     </div>
-
-	<?php
-    echo $this->data;
-    ?>
-
+	<!-- <?php echo $this->data; ?> -->
+<hr>
 	<div class="grid-x grid-padding-x text-center">
     <div class="cell small-12 medium-6 large-6">
 	<h5>Busqueda por Nombre, Código y Formula</h5>
-	<input type="text" id="buscarquimico" placeholder="Buscar...">
+	<input type="text" id="buscarquimico" class="rounded-border" placeholder="Buscar...">
     </div>
     <div class="cell small-12 medium-6 large-6">
-	<a class="button success" href="<?php echo constant('URL') ?>ingreso/nuevo">Nuevo</a>
+	<h5>Realizar nuevo registro</h5>
+	<a class="button success rounded-border" href="<?php echo constant('URL') ?>ingreso/nuevo">Nuevo</a>
     </div>
 	</div>
 

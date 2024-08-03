@@ -49,7 +49,7 @@ class Entregamodel extends Model
 
     public function createEntidad($entidad, $sigla,$localidad,$fecCreate)
     {
-        $sql = "INSERT INTO `laboratorioUNA`.`entidad` (`entidad`, `sigla`, `localidad`, `fecCreate`) VALUES ('$entidad', '$sigla', '$localidad', '$fecCreate');";
+        $sql = "INSERT INTO `entidad` (`entidad`, `sigla`, `localidad`, `fecCreate`) VALUES ('$entidad', '$sigla', '$localidad', '$fecCreate');";
         $res = $this->conn->ConsultaSin($sql);
         return $res;
     }

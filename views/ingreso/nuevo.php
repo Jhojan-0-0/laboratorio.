@@ -1,6 +1,6 @@
 <?php require ('views/header.php');?>
-
-<link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/entrega.css">
+<br>
+<link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/ingreso.css">
 
 <div class="grid-container">
 <form action="<?php echo constant('URL') ?>ingreso/CreateQuimico" method="POST" enctype="multipart/form-data" id="quimicoIngr">
@@ -96,10 +96,10 @@
     </div>
     <div class="grid-x grid-padding-x">
       <div class="cell small-12 medium-6 large-4">
-        <label for="feFabricacion">Fecha de Fabricación
-          <input type="date" name="feFabricacion" id="feFabricacion">
+        <label for="formula">Formula de Químico
+          <input type="text" name="formula" id="formula" required>
         </label>
-        </div>
+      </div>
       <div class="cell small-12 medium-6 large-4">
         <label for="peso">Peso
           <input type="text" name="peso" id="peso">
@@ -112,20 +112,20 @@
       </div>
     </div>
     <div class="grid-x grid-padding-x">
-    <div class="cell small-12 medium-6 large-4">
+      <div class="cell small-12 medium-6 large-4">
+        <label for="feFabricacion">Fecha de Fabricación
+          <input type="date" name="feFabricacion" id="feFabricacion">
+        </label>
+      </div>
+      <div class="cell small-12 medium-6 large-4">
         <label for="feVencimiento">Fecha de Vencimiento
           <input type="date" name="feVencimiento" id="feVencimiento">
         </label>
         </div>
-      <div class="cell small-12 medium-6 large-4">
-        <label for="formula">Formula de Químico
-          <input type="text" name="formula" id="formula" required>
-        </label>
-      </div>
     </div>
 
     <div class="cell small-12 medium-6 large-6 text-center">
-          <button class="button success" type="submit">Crear Nuevo</button>
+          <button class="button success" type="submit">Guardar Quimico</button>
           <a href="<?php echo constant('URL') ?>ingreso" class="button alert">Volver</a>
         </div>
 

@@ -46,3 +46,37 @@
   background-color: white; /* Fondo blanco en hover */
   color: rgb(37, 74, 236);            /* Texto negro en hover */
 }
+
+
+/* Estilo para el menú y elementos de la lista */
+.menu {
+  list-style: none; /* Quita los puntos de la lista */
+  padding: 0; /* Quita el padding */
+  margin: 0; /* Quita el margen */
+}
+
+.menu li {
+  margin: 0; /* Quita el margen entre los elementos de la lista */
+}
+
+.menu a {
+  display: flex; /* Usa flexbox para alinear íconos y texto */
+  align-items: center; /* Centra verticalmente el contenido */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  color: #ffffff; /* Color del texto */
+  background-color: #007bff; /* Color de fondo del botón */
+  padding: 10px 15px; /* Espaciado interno del botón */
+  border-radius: 4px; /* Bordes redondeados del botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  transition: background-color 0.3s ease, border 0.3s ease; /* Transiciones suaves para fondo y borde */
+  border: 2px solid transparent; /* Borde inicial transparente */
+}
+
+.menu a:hover {
+  background-color: #fdfdfd; /* Color de fondo al pasar el cursor */
+  border-color: #07ff07; /* Color del borde al pasar el cursor */
+}
+
+.menu a i {
+  margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}

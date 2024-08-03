@@ -28,12 +28,13 @@ class Login extends Controller
 					break;
 				case 2:
 				   // Personal
-				   $_SESSION['katari'] = $datos['idpersonal'];
-				   header("Location: ".constant('URL')."/dashboard");
-				   break;
+				$_SESSION['katari'] = $datos['idpersonal'];
+				header("Location: ".constant('URL')."/dashboard");
+				break;
 			}
 		}else{
 			echo "Usuario no activo";
+			header('location:'.constant('URL'));
 		}
 
 	}

@@ -3,7 +3,7 @@
 
 
   <div class="grid-container  ">
-    <div class="section-title">TIPOS</div>
+    <div class="section-title">TIPOS DE QUIMICOS</div>
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
         <div class="card">
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="section-title">CLASIFICADOS</div>
+    <div class="section-title">CLASIFICACION DE QUIMICOS</div>
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
         <div class="card">

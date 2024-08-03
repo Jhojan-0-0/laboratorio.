@@ -1,6 +1,6 @@
 <?php require ('views/header.php');?>
-
-<link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/entrega.css">
+<br>
+<link rel="stylesheet" href="<?php echo constant('URL') ?>public/css/entidad.css">
   <div class="grid-container">
 
   <form action="<?php echo constant('URL') ?>entrega/entidadCreate" method="POST" enctype="multipart/form-data" id="entidadCrt">
@@ -17,14 +17,14 @@
       </div>
       <div class="cell small-12 medium-6 large-6">
         <label for="sigla">Siglas
-          <input type="text" name ="sigla" id="sigla" required>
+          <input type="text" name ="sigla" id="sigla">
         </label>
       </div>
     </div>
     <div class="grid-x grid-padding-x">
       <div class="cell small-12 medium-6 large-6">
         <label for="localidad">Localidad
-          <input type="text" name ="localidad" id="localidad" required>
+          <input type="text" name ="localidad" id="localidad">
         </label>
       </div>
       <div class="cell small-12 medium-6 large-6">

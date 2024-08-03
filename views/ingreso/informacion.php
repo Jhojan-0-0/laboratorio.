@@ -1,4 +1,5 @@
 <?php require ('views/header.php'); ?>
+<br>
 <div class="grid-container">
     <div class="grid-x align-spaced">
         <h2>Informacion Quimico: <?php echo @$this->data['nombre'] ?></h2>
