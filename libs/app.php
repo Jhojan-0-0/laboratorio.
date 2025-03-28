@@ -9,7 +9,9 @@ class App
     $url = rtrim($url, '/');
     $url = explode('/', $url);
 
-    if ($_SESSION['katari']) {
+    if ($_SESSION['katari'])
+    {
+      #echo "Session iniciada";
       if (empty($url[0])) {
 
         $archivoController = "controller/dashboard.php";
@@ -32,11 +34,7 @@ class App
 
         if ($nparam > 1) {
           if ($nparam > 2) {
-            $param = [];
-            for ($i = 2; $i < $nparam; $i++) {
-              array_push($param, $url[$i]);
-            }
-            $controller->{$url[1]}($param);
+            $controller->{$url[1]}($url[2]);
           } else {
             $controller->{$url[1]}();
           }
@@ -50,6 +48,7 @@ class App
         $controller->render();
       }
     }else{
+      #echo "Session NO iniciada";
       if (empty($url[0])) {
         #echo "URL vacia";
         $archivoController = "controller/login.php";

@@ -1,4 +1,5 @@
 <?php
+
 class Conexion
 {
   public $conn;
@@ -17,7 +18,7 @@ class Conexion
       exit();
     }
 
-    #echo $this->conn->host_info . " ANTARES";
+    //echo $this->conn->host_info . " LABORATORIO";
     return $this->conn;
   }
 

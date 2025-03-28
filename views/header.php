@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- CSS->SIDEBAR -->
-  <link rel="stylesheet" href="<?php echo constant('URL') . 'public/css/sidebar.css' ?>">
+  <link rel="stylesheet" href="<?php echo constant('URL') . 'public/css/sidebar.css1' ?>">
 
   <script src="<?php echo constant('URL') . 'public/js/core/jquery.min.js' ?>"></script>
   <script src="<?php echo constant('URL') . 'public/foundation/js/foundation.js' ?>"></script>
