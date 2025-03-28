@@ -22,4 +22,21 @@ class Galeria extends Controller
 		);
 		$this->view->Render('galeria/index');
 	}
+	function listcomunes()
+	{
+		$this->view->Render('galeria/listcomunes');
+	}
+
+	function listfiscalizados()
+	{
+		$this->view->Render('galeria/listfiscalizados');
+	}
+	function listacidos()
+	{
+		$this->view->Render('galeria/listacidos');
+	}
+	function listbasicos()
+	{
+		$this->view->Render('galeria/listbasicos');
+	}
 }

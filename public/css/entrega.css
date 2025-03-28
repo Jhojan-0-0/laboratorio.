@@ -1,17 +1,87 @@
+/* General Styles */
+form#quimicoEntr {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.header {
-  background-color: #1976d2;
-  color: white;
-  padding: 1rem;
-  border-radius: 10px 10px 0 0;
+form#quimicoEntr h4.header {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #add8e6; /* Color celeste */
+  padding: 10px;
+  border-radius: 4px;
 }
-.button-custom {
-  background: linear-gradient(to right, #4a00e0, #8e2de2);
-  color: white;
+
+form#quimicoEntr label {
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
 }
-.form-container {
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+form#quimicoEntr input[type="text"],
+form#quimicoEntr select,
+form#quimicoEntr input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 42px; /* Adjusted height for consistency */
+}
+
+/* Styling for select elements to include arrow */
+form#quimicoEntr select {
+  -webkit-appearance: none; /* Remove default arrow in Webkit browsers */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  appearance: none; /* Remove default arrow in modern browsers */
+  background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><path fill="none" stroke="%23333" stroke-width="1.5" d="M0 0l5 5 5-5"/></svg>') no-repeat right 10px center;
+  background-size: 10px;
+  padding-right: 30px; /* Adjust to make room for the arrow */
+}
+
+/* Button Styles */
+form#quimicoEntr .button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #28a745;
+}
+
+form#quimicoEntr .button:hover {
+  background-color: #218838;
+}
+
+form#quimicoEntr .button.alert {
+  background-color: #dc3545;
+}
+
+form#quimicoEntr .button.alert:hover {
+  background-color: #c82333;
+}
+
+/* Grid Styles */
+form#quimicoEntr .grid-x {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+form#quimicoEntr .cell {
+  flex: 1;
+  min-width: calc(50% - 20px);
+}
+
+form#quimicoEntr .text-center {
+  text-align: center;
 }

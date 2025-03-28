@@ -1,40 +1,39 @@
 <?php require ('views/header.php');?>
 <br>
+<link rel="stylesheet" href="./public/css/index.css">
+<link rel="stylesheet" href="<?php echo constant('URL') ?>public/assets/Assets/css/jpaginate.css">
 <div class="grid-container">
 	<div class="grid-x align-spaced">
 		<h3>Entrega de quimicos</h3>
-		<?php  echo $this->mensaje;?>
-
+		<!-- <?php  echo $this->mensaje;?> -->
 	</div>
-	<div class="grid-x">
-        <div class="cell small-12 medium-1">Buscar</div>
-        <div class="cell small-12 medium-6">
-            <input type="text" placeholder="Buscar">
-        </div>
-        <div class="cell small-12 medium-2">
-            <button type="button" class="button ">Buscar</button>
-        </div>
-        <div class="cell small-12 medium-3">
-			<a class="button success" href="<?php constant('URL');?>entrega/nuevo">Nuevo</a>
-        </div>
+	<hr>
+	<div class="grid-x grid-padding-x text-center">
+    <div class="cell small-12 medium-6 large-6">
+	<h5>Busqueda por Nombre, Entidad, Fecha, Codigo y Docente</h5>
+        <input type="text" id="buscarEntrega" class="rounded-border" placeholder="Buscar...">
     </div>
-    <br>
+    <div class="cell small-12 medium-6 large-6">
+	<h5>Realizar nueva entrega</h5>
+        <a class="button success rounded-border" href="<?php echo constant('URL');?>entrega/nuevo">Nuevo</a>
+    </div>
+	</div>
 
 <!-- Creacion de la tabla de los quimicos entregados  -->
 
-	<div class="grid-x text-center">
+	<div class="grid-x">
 		<table>
 			<thead>
 				<tr>
-					<th class="text-center">N°</th>
-					<th class="text-center">Docente</th>
-					<th class="text-center">Quimico</th>
-					<th class="text-center">Fecha de Entrega</th>
-					<th class="text-center">Codigo Quimico</th>
-					<th class="text-center">Cantidad Quimicos</th>
-					<th class="text-center">Descripcion</th>
-					<th class="text-center">Marca</th>
-					<th class="text-center">Facultad / Entidad</th>
+					<th>N°</th>
+					<th>Docente</th>
+					<th>Quimico</th>
+					<th>Fecha de Entrega</th>
+					<th>Codigo Quimico</th>
+					<th>Cantidad Quimico</th>
+					<th>Descripcion</th>
+					<th>Marca</th>
+					<th>Facultad / Entidad</th>
 					
 				</tr>
 			</thead>
@@ -43,19 +42,10 @@
 			<tbody id="entrega-quimico">
 			</tbody>
 		</table>
+		<div id="entrega-paginador"></div>
 	</div>
 </div>
 
-<ul class="pagination-pointed pagination text-center" role="navigation" aria-label="Pagination">
-		<li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
-		<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-		<li><a class="pagination-pointed-button" href="#" aria-label="Page 2">2</a></li>
-		<li><a class="pagination-pointed-button" href="#" aria-label="Page 3">3</a></li>
-		<li><a class="pagination-pointed-button" href="#" aria-label="Page 4">4</a></li>
-		<li class="ellipsis" aria-hidden="true"></li>
-
-		<li class="pagination-next"><a class="pagination-pointed-button" href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
-</ul>
-
 <script src="<?php echo constant('URL') ?>public/js/entrega.js"></script>
+
 <?php require ('views/footer.php');?>

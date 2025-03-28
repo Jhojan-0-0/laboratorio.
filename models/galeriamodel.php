@@ -21,13 +21,13 @@ class Galeriamodel extends Model
     }
     public function Acidos()
     {
-        $sql = "SELECT COUNT(*) AS total FROM quimicos_registro WHERE clasificacion = 'acidos';";
+        $sql = "SELECT COUNT(*) AS total FROM quimicos_registro WHERE clasificacion = 'Acidos';";
         $res = $this->conn->ConsultaArray($sql);
         return $res;
     }
     public function Basicos()
     {
-        $sql = "SELECT COUNT(*) AS total FROM quimicos_registro WHERE clasificacion = 'basicos';";
+        $sql = "SELECT COUNT(*) AS total FROM quimicos_registro WHERE clasificacion = 'Basicos';";
         $res = $this->conn->ConsultaArray($sql);
         return $res;
     }

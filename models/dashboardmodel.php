@@ -13,6 +13,7 @@ class DashboardModel extends Model{
         $this->conn->ConsultaSin($sql);
         
     }
+
 }
 
 

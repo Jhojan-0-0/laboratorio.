@@ -16,6 +16,7 @@
   <div class="login-container">
     <div class="login-form">
       <h2>Login</h2>
+      <!-- <?php echo $this->mensaje; ?>  -->
       <form action="login/logIn" method="POST">
         <label for="usuario">Usuario</label>
         <input type="text" name="usuario" id="usuario" required>

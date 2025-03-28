@@ -21,33 +21,26 @@ class Login extends Controller
             # idlogin, idpersonal, nivusu, estado
             $datos = $this->model->validar($user,$pass);
 
-            if($datos['estado'])
-            {
-                #echo "Usuario Activo";
-                switch ($datos['nivusu']) {
-                    case 1:
-                        // Administrador..
-                        echo "En administrador";
-                        break;
-                    case 2:
-                        // Personalersonal
-                        $_SESSION['katari'] = $datos['idpersonal'];
-			header("Location: ".constant('URL')."/dashboard");
-			break;
-                    default :
-                        echo "nada";
-                    }
-            }else{
-		echo "Usuario no activo";
-            }
+		if($datos['estado'])
+		{
+			#echo "Usuario Activo";
+			switch ($datos['nivusu']) {
+				case 1:
+					// Administrador...
+					break;
+				case 2:
+				   // Personal
+				$_SESSION['katari'] = $datos['idpersonal'];
+				header("Location: ".constant('URL')."/dashboard");
+				break;
+			}
+		}else{
+			echo "Usuario no activo";
+			header('location:'.constant('URL'));
+		}
+
 
 	}
-        
-    
-    function cerrar()
-    {      
-        
-    }
 
 
     public function logout()
