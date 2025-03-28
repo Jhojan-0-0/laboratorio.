@@ -27,4 +27,11 @@ class LoginModel extends Model
         echo $sql;
         $this->conn->ConsultaSin($sql);
     }
+    
+    function bitacora($idpersonal,$ip,$fecha,$horainicio)
+    {
+        $sql = "INSERT INTO bitacora VALUES (NULL, $idpersonal,'$ip','$fecha','$horainicio',null,0,0);";
+        $this->conn->ConsultaSin($sql);
+        
+    }
 }
