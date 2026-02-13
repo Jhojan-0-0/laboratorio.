@@ -5,72 +5,81 @@ class App
 {
   function __construct()
   {
-    $url = $_GET['url'];
+    $url = $_GET['url'] ?? '';
     $url = rtrim($url, '/');
     $url = explode('/', $url);
-
-    if ($_SESSION['katari'])
+    //echo "0: ".$url[0]."<br>";
+    //echo "1: ".$url[1]."<br>";
+    //echo "2: ".$url[2]."<br>";
+  
+    if (empty($url[0]))
     {
-      #echo "Session iniciada";
-      if (empty($url[0])) {
-
-        $archivoController = "controller/dashboard.php";
+        $archivoController = "controller/login.php";
         require_once $archivoController;
-        $controller = new Dashboard();
-        $controller->loadModel('dashboard');
+        $controller = new login();
+        $controller->loadModel('login');
         $controller->render();
         return false;
-      }
-      #echo "con parametros";
-      $archivoController = "controller/" . $url[0] . ".php";
-      if (file_exists($archivoController)) {
-        #echo "Si existe";
+    }
+
+    #echo "con parametros";
+    $archivoController = "controller/" . $url[0] . ".php";
+    
+    if (file_exists($archivoController))
+      {
+        //echo "Si existe";
         require_once $archivoController;
         $controller = new $url[0];
         $controller->loadModel($url[0]);
 
         # numero de elementos del arreglo
         $nparam = sizeof($url);
-
-        if ($nparam > 1) {
-          if ($nparam > 2) {
-            $controller->{$url[1]}($url[2]);
+        
+        if ($nparam > 1)
+        {
+          // Hay un método específico a ejecutar
+          if ($nparam > 2)
+          {
+            $param = [];
+            for ($i = 2; $i < $nparam; $i++)
+            {
+              array_push($param, $url[$i]);
+            }
+            
+            $controller->{$url[1]}($param[0]);
+            // No llamar render si el método ya hizo exit o redirección
+            if (!headers_sent()) {
+              $controller->render();
+            }
+            
           } else {
-            $controller->{$url[1]}();
+            // Ejecutar el método solicitado (ej: logout)
+            $methodName = $url[1];
+            if (method_exists($controller, $methodName)) {
+              $controller->{$methodName}();
+              // No llamar render si el método ya hizo exit o redirección
+              // El método logout() ya hace exit(), así que esto no se ejecutará
+              if (!headers_sent()) {
+                $controller->render();
+              }
+            } else {
+              // Método no existe, mostrar error o redirigir
+              require_once "controller/error.php";
+              $errorController = new ErrorGeneral();
+              $errorController->render();
+            }
           }
+          
         } else {
+          // No hay método específico, solo renderizar
           $controller->render();
         }
       } else {
         #echo "no existe";
-        require "controller/error.php";
+        require_once "controller/error.php";
         $controller = new ErrorGeneral();
         $controller->render();
       }
-    }else{
-      #echo "Session NO iniciada";
-      if (empty($url[0])) {
-        #echo "URL vacia";
-        $archivoController = "controller/login.php";
-        require_once $archivoController;
-        $controller = new Login;
-        $controller->loadModel('main');
-        $controller->render();
-        return false;
-      }
-      #echo "Segundo: ".$url[1];
-      if (isset($url[1]) && $url[1] == "logIn") {
-        $archivoController = "controller/login.php";
-        require_once $archivoController;
-        $controller = new Login;
-        $controller->loadModel('login');
-        $controller->logIn();
-        $controller->render();
-      } else {
-        #echo "nada";
-        header("location: " . constant('URL'));
-      }
-    }
-
+      
   }
 }

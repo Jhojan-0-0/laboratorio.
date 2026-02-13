@@ -1,25 +1,29 @@
-      <!-- MAIN CONTENT ALL -->
-      </div>
 
-      <!-- CIERRE DE OFF-CANVAS-CONTENT Y OFF-CANVAS-WRAPPER==>> PARA
-      EL FUNCIONAMIENTO CORRECTO DEL SIDEBAR -->
-    </div>
-</div>
+  <!-- Pie de pagina -->
+  <div class="grid-x align-center">
+    <small class="copyright">
+      <span class=""> ©
+        LUDWIN SOFTWARE
+      </span>
+      Copyrigth Ludwin. Inc.</small>
+    <small class="copyright">Todos los derechos reservados.</small>
+  </div>
 
-
-<!-- Pie de pagina -->
-<div class="grid-x align-center">
-  <small class="copyright">
-    <span class=""> ©
-      KATARI SOFTWARE
-    </span>
-    Copyrigth Katari. Inc.</small>
-  <small class="copyright">Todos los derechos reservados.</small>
-</div>
-
-
-<script>$(document).foundation();</script>
-
+  <!-- CHARTJS-GRAFICOS -->
+  <!--<script src="<?php echo constant('URL') . 'public/js/jquery.js' ?>"></script>-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  
+  <script src="<?php echo constant('URL') . 'public/js/plugins/foundation.core.js' ?>"></script>
+  <script src="<?php echo constant('URL') . 'public/js/validation.js' ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo constant('URL') ?>public/js/jpaginate.js"></script>
+  
+  <script>
+      $(document).ready(function() {
+        $(document).foundation();
+      });
+    </script>
 </body>
-
 </html>

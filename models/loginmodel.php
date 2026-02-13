@@ -13,25 +13,27 @@ class LoginModel extends Model
         $res = $this->conn->ConsultaArray($sql);
         return $res;
     }
-    
-    function LastCodigo($idpersonal)
+
+    function bitacora($idpersonal,$ip,$horainicio)
     {
-        $sql = "SELECT idbitacora FROM bitacora WHERE estado = 0 and idpersonal = '$idpersonal' ORDER BY idbitacora DESC LIMIT 1;";
-        $res = $this->conn->ConsultaArray($sql);
-        return $res;
-    }
-    
-    function Cerrar($horafinal,$tiempo,$idbitacora)
-    {
-        $sql = "UPDATE bitacora SET horafinal  = '$horafinal', tiempo = '$tiempo', estado = 1 WHERE idbitacora = $idbitacora;";
+        $sql = "INSERT INTO bitacora VALUES (null,'$idpersonal','$ip','$horainicio','$horainicio','0');";
         echo $sql;
         $this->conn->ConsultaSin($sql);
     }
     
-    function bitacora($idpersonal,$ip,$fecha,$horainicio)
+    function LastCodigo($idpersonal)
     {
-        $sql = "INSERT INTO bitacora VALUES (NULL, $idpersonal,'$ip','$fecha','$horainicio',null,0,0);";
-        $this->conn->ConsultaSin($sql);
-        
+        $sql = "SELECT idbitacora FROM bitacora WHERE estado = 0 and idpersonal = '$idpersonal' ORDER BY idbitacora DESC LIMIT 1;";
+        echo $sql;
+        $res = $this->conn->ConsultaArray($sql);
+        return $res;
     }
+    
+    function Cerrar($horafinal,$idbitacora)
+    {
+        $sql = "UPDATE bitacora SET horafinal = '$horafinal', estado = 1 WHERE idbitacora = $idbitacora;";
+        echo $sql;
+        $this->conn->ConsultaSin($sql);
+    }
+    
 }

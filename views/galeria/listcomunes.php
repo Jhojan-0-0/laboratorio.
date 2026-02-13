@@ -18,7 +18,7 @@
 					<th>Fecha de Vencimiento</th>
 					<th>Codigo de Producto</th>
 					<th>Tipo</th>
-                    <th>Formula de Quimico</th>
+					<th>Formula de Quimico</th>
 				</tr>
 			</thead>
 			

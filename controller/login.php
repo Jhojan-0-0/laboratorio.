@@ -1,5 +1,4 @@
 <?php
-
 class Login extends Controller
 {
 
@@ -8,19 +7,16 @@ class Login extends Controller
         parent::__construct();
     }
 
-    function render()
+    function login()
     {
-        $this->view->Render('login/index');
-    }
-    
-    public function logIn()
-    {
-        echo "en login";
-            $user = trim(strtolower($_POST['usuario']));
-            $pass = trim(strtolower($_POST['password']));
-            # idlogin, idpersonal, nivusu, estado
-            $datos = $this->model->validar($user,$pass);
+        echo "dentro";
+        echo $user = trim(strtolower($_POST['usuario']));
+        echo $pass = trim(strtolower($_POST['password']));
 
+        # idlogin, idpersonal, nivusu, estado
+        $datos = $this->model->validar($user,$pass);
+        print_r($datos);
+        
 		if($datos['estado'])
 		{
 			#echo "Usuario Activo";
@@ -31,60 +27,53 @@ class Login extends Controller
 				case 2:
 				   // Personal
 				$_SESSION['katari'] = $datos['idpersonal'];
-                                $this->bitacora();
-				header("Location: ".constant('URL')."/dashboard");
+                $this->bitacora();
 				break;
 			}
 		}else{
 			echo "Usuario no activo";
 			header('location:'.constant('URL'));
 		}
-
-
 	}
     
     function bitacora()
     {
-        #echo "En bitacora controller";
+        //echo "En bitacora controller";
         # Recogiendo varibales para bitacora
         
         $ipUsuario = $_SERVER['REMOTE_ADDR'] ?? 'IP no disponible';
         //echo "Tu IP es: $ipUsuario";
         
         if (!isset($_SESSION['hora_inicio'])) {
-            $_SESSION['hora_inicio'] = date('H:i:s');
+            $_SESSION['hora_inicio'] = date('Y-m-d H:i:s');
             $_SESSION['ip_cliente'] = $ipUsuario;
         }
         
         $fecha = date('Y-m-d');
-        $this->model->bitacora($_SESSION['katari'],$_SESSION['ip_cliente'],$fecha,$_SESSION['hora_inicio']);
+        $this->model->bitacora($_SESSION['katari'],$_SESSION['ip_cliente'],$_SESSION['hora_inicio']);
+        echo $ruta = constant('URL').'dashboard';
+        header('Location:'. $ruta);
     }
 
 
-    public function logout()
+    function logout()
     {
-        $horaFin = date('H:i:s');
-   
-        $datetime1 = new DateTime($_SESSION['hora_inicio']);
-        $datetime2 = new DateTime($horaFin);
-
-        // Calcula la diferencia
-        $interval = $datetime1->diff($datetime2);
-
-        // Formatea la diferencia
-        $diferencia = $interval->format('%H:%I:%S');
-
-        echo "Diferencia: $diferencia"; // Mostrará la diferencia entre las horas
-                
-        // Buscar codigo para cerrar
+        $horaFin = date('Y-m-d H:i:s');
         $res = $this->model->LastCodigo($_SESSION['katari']);
-        echo "Last codigo: ".$res['idbitacora'];
 
-        $this->model->Cerrar($horaFin,$diferencia,$res['idbitacora']);
-        
+        if($res){
+            $this->model->Cerrar($horaFin,$res['idbitacora']);    
+            session_unset();
+            session_destroy();
+        }
         // Limpiar la sesión
-        session_unset();
-        session_destroy();
-	header("Location: ". constant('URL'));
+        $ruta = constant('URL');
+        header('Location:'. $ruta);
     }
+
+    function render()
+    {
+        $this->view->Render('login/index');
+    }
+    
 }

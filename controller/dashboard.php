@@ -5,11 +5,11 @@ class Dashboard extends Controller
 
     function __construct()
     {
-	parent::__construct();
+	   parent::__construct();
     }
 
     function render()
     {
-	$this->view->Render('dashboard/index');
+	   $this->view->Render('dashboard/index');
     }
 }

@@ -6,21 +6,23 @@ class IngresoModel extends Model{
     }
     // LISTAS COTIZACIONES
     public function ListarQuimico(){
-        $sql = "SELECT * from quimicos_registro;";
-        $data = $this->conn->ConsultaCon($sql);
-        return $data;
+        $sql = "SELECT * FROM productos;";
+        $res = $this->conn->ConsultaCon($sql);
+
+        return $res;
+        $mysqli->close();
     }
 
     public function GetQuimicoId($id)
     {
         $sql = "SELECT * FROM quimicos_registro WHERE idquimico = '$id'";
         $data = $this->conn->ConsultaArray($sql);
-        return $data;
     }
 
-    public function CreateQuimico($nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $tipo, $precio, $clasificacion, $mililitros, $formula, $foto)
+    public function CreateQuimico($nombre,$marca,$clasificacion,$fecFabricacion,$fecVencimiento,$numlote,$fecAdquisicion,$cantidadsin,$um1,$cantidadcon,$um2,$tipo,$presentacion,$precio,$estante,$nivel,$codOC,$horainicio,$horafinal)
     {
-        $sql = "INSERT INTO `quimicos_registro` (`nombre`, `concentracion`, `tipoEnvase`, `tamano`, `marca`, `peso`, `cantidad`, `feFabricacion`, `feVencimiento`, `codProducto`, `advertencia`, `tipo`, `precio`, `clasificacion`, `mililitros`, `formula`, `foto`) VALUES ('$nombre', '$concentracion', '$tipoEnvase', '$tamano', '$marca', '$peso', '$cantidad', '$feFabricacion', '$feVencimiento', '$codProducto', '$advertencia', '$tipo', '$precio', '$clasificacion', '$mililitros', '$formula', '$foto');";
+        $sql = "INSERT INTO productos VALUES (null,'$nombre','$marca','$clasificacion','$fecFabricacion','$fecVencimiento','$numlote','$fecAdquisicion','$cantidadsin','$um1','$cantidadcon','$um2','$tipo','$presentacion','$precio','$estante','$nivel','$codOC','$horainicio','$horafinal');";
+        
         $res = $this->conn->ConsultaSin($sql);
         return $res;
     }
@@ -46,5 +48,3 @@ class IngresoModel extends Model{
         return $res;
     }
 }
-
-?>

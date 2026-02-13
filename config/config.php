@@ -1,11 +1,10 @@
 <?php
-
 define('URL', 'http://localhost/laboratorio/');
 
 define('COMPANY', 'Laboratorio UNA-PUNO');
 define('HOST', 'localhost');
 define('USER', 'usuario');
-define('DB', 'laboratorioUNA');
+define('DB', 'laboratorio');
 define('PASSWORD', 'archivo123$');
 define('CHATSET', 'utf8');
 
