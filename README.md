@@ -1,2 +1,2 @@
-# Plantilla usando MVC con router, de un solo modulo
-# LABORADTORIO 
+# laboratorio
+Sistema de laboratorio UNA
