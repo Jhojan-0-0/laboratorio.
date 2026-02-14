@@ -1,0 +1,40 @@
+/* Estilos generales para el borde redondeado y la animación */
+.rounded-border {
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Estilo específico para el input */
+#buscarEntrega {
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* Cambiar el color del borde al hacer foco en el input */
+#buscarEntrega:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(66, 150, 240, 0.5);
+}
+
+/* Estilo específico para el botón */
+.button.success {
+  background-color: rgb(21, 184, 102);
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+
+/* Cambiar el fondo y el borde del botón al pasar el mouse */
+.button.success:hover {
+  background-color: #fafafb;
+  border-color: #1e2c7e;
+}
+
+/* Cambiar el fondo y el borde del botón al hacer clic */
+.button.success:active {
+  background-color: #7bacec;
+  border-color: #1c2974;
+}

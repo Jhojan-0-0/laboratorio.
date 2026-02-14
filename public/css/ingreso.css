@@ -1,0 +1,87 @@
+/* General Styles */
+form#quimicoIngr {
+    max-width: 900px; /* Ancho total del formulario */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form#quimicoIngr h4.header {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #add8e6; /* Color celeste */
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  form#quimicoIngr label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  form#quimicoIngr input[type="text"],
+  form#quimicoIngr input[type="date"],
+  form#quimicoIngr input[type="file"],
+  form#quimicoIngr select {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Ancho máximo ajustado */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 42px; /* Same height for all inputs and selects */
+  }
+  
+  form#quimicoIngr select {
+    -webkit-appearance: none; /* Remove default arrow in Webkit browsers */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    appearance: none; /* Remove default arrow in modern browsers */
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><path fill="none" stroke="%23333" stroke-width="1.5" d="M0 0l5 5 5-5"/></svg>') no-repeat right 10px center;
+    background-size: 10px;
+    padding-right: 30px; /* Adjust to make room for the arrow */
+  }
+  
+  form#quimicoIngr .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #28a745;
+  }
+  
+  form#quimicoIngr .button:hover {
+    background-color: #218838;
+  }
+  
+  form#quimicoIngr .button.alert {
+    background-color: #dc3545;
+  }
+  
+  form#quimicoIngr .button.alert:hover {
+    background-color: #c82333;
+  }
+  
+  form#quimicoIngr .grid-x {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  form#quimicoIngr .cell {
+    flex: 1;
+    min-width: calc(33.33% - 20px);
+  }
+  
+  form#quimicoIngr .text-center {
+    text-align: center;
+  }
+  
