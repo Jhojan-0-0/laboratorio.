@@ -5,10 +5,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laboratorio</title>
-  <!-- Compressed CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.9.0/dist/css/foundation.min.css" crossorigin="anonymous">
+  <!-- Compressed CSS 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.9.0/dist/css/foundation.min.css" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="<?php echo constant('URL');?>public/css/foundation.min.css" />
+  
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="<?php echo constant('URL') . 'public/img/favicon.ico' ?>">
+  <link rel="shortcut icon" href="<?php echo constant('URL');?>public/img/favicon.ico">
   <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -25,6 +27,7 @@
         <li class="menu-text">Mega Laboratorio UNA Puno</li>
           <li><a href="<?php echo constant('URL'); ?>dashboard">Home</a></li>
           <li><a href="<?php echo constant('URL'); ?>ingreso">Ingreso</a></li>
+          <li><a href="<?php echo constant('URL'); ?>validar">Validar Ingresos</a></li>
           <li><a href="<?php echo constant('URL'); ?>galeria">Galeria</a></li>
           <li><a href="<?php echo constant('URL'); ?>entrega">Entrega</a></li>
         </li>

@@ -6,7 +6,7 @@ class IngresoModel extends Model{
     }
     // LISTAS COTIZACIONES
     public function ListarQuimico(){
-        $sql = "SELECT * FROM productos;";
+        $sql = "SELECT idproducto,nombre,marca,clasificacion,fecFabricacion,fecVencimiento,numlote,fecAdquisicion,cantidadsin,um1,cantidadcon,um2,tipo,presentacion,precio,estante,nivel,codOC,horainicio,horafinal,fecCreate FROM productos;";
         $res = $this->conn->ConsultaCon($sql);
 
         return $res;
@@ -15,8 +15,10 @@ class IngresoModel extends Model{
 
     public function GetQuimicoId($id)
     {
-        $sql = "SELECT * FROM quimicos_registro WHERE idquimico = '$id'";
+        $sql = "SELECT * FROM productos WHERE idproducto = " . $id;
         $data = $this->conn->ConsultaArray($sql);
+        return $data;
+        $mysqli->close();
     }
 
     public function CreateQuimico($nombre,$marca,$clasificacion,$fecFabricacion,$fecVencimiento,$numlote,$fecAdquisicion,$cantidadsin,$um1,$cantidadcon,$um2,$tipo,$presentacion,$precio,$estante,$nivel,$codOC,$horainicio,$horafinal)
@@ -28,16 +30,18 @@ class IngresoModel extends Model{
     }
 
     public function Buscarquimico($query){
-        $sql = "SELECT * FROM quimicos_registro WHERE nombre LIKE '%$query%' OR codProducto LIKE '%$query%' OR formula LIKE '%$query%';";
+        $sql = "SELECT * FROM productos WHERE nombre LIKE '%$query%' OR clasificacion LIKE '%$query%';";
         $res = $this->conn->ConsultaCon($sql);
         return $res;
+        $mysqli->close();
     }
     
     public function Delete($id)
     {
-        $sql = "DELETE FROM `quimicos_registro` WHERE (`idquimico` = '$id');";
+        $sql = "DELETE FROM productos WHERE idproducto = ".$id;
         $res = $this->conn->ConsultaSin($sql);
         return $res;
+        $mysqli->close();
     }   
 
     public function UpdateQuimico($idquimico, $nombre, $concentracion, $tipoEnvase, $tamano, $marca, $peso, $cantidad, $feFabricacion, $feVencimiento, $codProducto, $advertencia, $foto, $tipo, $precio, $clasificacion, $mililitros, $formula)

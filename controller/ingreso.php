@@ -25,6 +25,7 @@ class Ingreso extends Controller
 	function render()
 	{
 		$this->view->Render('ingreso/index');
+		$this->view->data2 = $this->listarQuimico();
 	}
 
 	function nuevo()
@@ -34,10 +35,9 @@ class Ingreso extends Controller
 		$this->view->Render('ingreso/nuevo');
 	}
 
-	function informacion($nparam = null)
+	function informacion($codigo)
 	{
-		$id = $nparam[0];
-		$this->view->data = $this->model->GetQuimicoId($id);
+		$this->view->data = $this->model->GetQuimicoId($codigo);
 		$this->view->Render('ingreso/informacion');
 	}
 
@@ -72,14 +72,8 @@ class Ingreso extends Controller
 
         header('Content-Type: application/json; charset=utf-8');
         
-        echo json_encode([
-            'success'   => true,
-            'total'     => count($productos),
-            'data'      => $productos,
-            'timestamp' => date('c')
-        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
+        echo json_encode($productos);
 		
-			
 	}
 
 	function createQuimico(){
@@ -162,7 +156,6 @@ class Ingreso extends Controller
 	    return "$valor - $unidad";
 	}
 
-/*
 	public function updateQuimico(){
 		
 		$idquimico = $_POST['idquimico'];
@@ -215,26 +208,30 @@ class Ingreso extends Controller
 		$json = array();
 		while($row = mysqli_fetch_assoc($data)){
 			$json[] = array(
-				"idquimico"=>$row['idquimico'],
+				"idproducto"=>$row['idproducto'],
 				"nombre"=>$row['nombre'],
-				"feFabricacion"=>$row['feFabricacion'],
-				"feVencimiento"=>$row['feVencimiento'],
-				"codProducto"=>$row['codProducto'],
+				"fecFabricacion"=>$row['fecFabricacion'],
+				"fecVencimiento"=>$row['fecVencimiento'],
+				"marca"=>$row['marca'],
 				"tipo"=>$row['tipo'],
-				"clasificacion"=>$row['clasificacion'],	
-				"formula"=>$row['formula'],
+				"clasificacion"=>$row['clasificacion'],
+				"clasificacion"=>$row['clasificacion'],
 			);
 		}
 		echo json_encode($json);
 	}
 
-	public function delete(){
-		$id = $_POST['id'];
-		if($this->model->Delete($id)){
+	function delete($idproducto)
+	{
+		$res = $this->model->Delete($idproducto);
+
+		if($res){
 			echo "EXITO AL ELIMINAR";
+			$this->view->Render('ingreso/index');
 		}else{
 			echo "ERROR AL ELIMINAR";
+			$this->view->Render('ingreso/index');
 		}
 	}
-	*/
+	
 }

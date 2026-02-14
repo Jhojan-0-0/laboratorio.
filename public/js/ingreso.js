@@ -2,15 +2,15 @@ var host = "localhost";
 
 $(document).ready(function () {
   listaQuimico();
-  /*
   eliminar();
   Buscarquimico();
   postQuimico();
   updateQuimico();
-  */
+  
 });
 
 function listaQuimico() {
+  
   //alert("listado");
   $.ajax({
     type: "GET",
@@ -30,7 +30,7 @@ function listaQuimico() {
                       <td>${element.clasificacion}</td>
                       <td>${element.estante}</td>
                   <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idproducto}" style="border-radius: 8px;">Informacion</a></td>
-                  <td><button class="button alert" id="eliminar" style="border-radius: 8px;">Eliminar</button></td>
+                  <td><a class="button alert" onclick="eliminarRegistro(${element.idproducto})" style="border-radius: 8px;">Eliminar</a></td>
               </tr>`;
       });
       $("#mostrar").html(html);
@@ -42,13 +42,36 @@ function listaQuimico() {
   });
 }
 
+// Función global que puedes llamar desde cualquier botón
+function eliminarRegistro(id) {
+    if (confirm('¿Está seguro de eliminar este registro?')) {
+        $.ajax({
+            url: `http://${host}/laboratorio/ingreso/delete/${id}`,
+            type: 'get',
+            success: function(response) {
+                // Actualizar la tabla sin recargar la página
+                alert('Registro eliminado correctamente');
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                let mensaje = 'Error al eliminar';
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    mensaje = xhr.responseJSON.message;
+                }
+                alert(mensaje);
+            }
+        });
+    }
+}
+
 function Buscarquimico(query) {
+      mostrar = [];
   $.ajax({
     type: "GET",
     url: `http://${host}/laboratorio/ingreso/buscarquimico`,
     data: { query: query },
     success: function (response) {
-      mostrar = JSON.parse(response);
+      mostrar = response;
       let template = "";
       mostrar.forEach((element) => {
         template += `
@@ -61,8 +84,8 @@ function Buscarquimico(query) {
                       <td>${element.tipo}</td>
                       <td>${element.clasificacion}</td>
                       <td>${element.estante}</td>
-                      <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idproducto}" style="border-radius: 8px;">Informacion</a></td>
-                      <td><button class="button alert" id="eliminar" style="border-radius: 8px;">Eliminar</button></td>
+                      <td><a class="button" href="./ingreso/informacion/${element.idproducto}" style="border-radius: 8px;">Informacion</a></td>
+                      <td><a class="button" href="./ingreso/delete/${element.idproducto}" style="border-radius: 8px;">Eliminar</a></td>
                   </tr>`;
       });
       $("#mostrar").html(template);
@@ -70,7 +93,7 @@ function Buscarquimico(query) {
     },
     error: function (error) {
       console.log("ERROR EN LA PETICION: " + error);
-    },
+    }
   });
 }
 $("#buscarquimico").on("input", function () {
