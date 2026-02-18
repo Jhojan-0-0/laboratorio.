@@ -72,8 +72,14 @@ class Ingreso extends Controller
 
         header('Content-Type: application/json; charset=utf-8');
         
-        echo json_encode($productos);
+        echo json_encode([
+            'success'   => true,
+            'total'     => count($productos),
+            'data'      => $productos,
+            'timestamp' => date('c')
+        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
 		
+			
 	}
 
 	function createQuimico(){
@@ -156,6 +162,7 @@ class Ingreso extends Controller
 	    return "$valor - $unidad";
 	}
 
+/*
 	public function updateQuimico(){
 		
 		$idquimico = $_POST['idquimico'];
@@ -208,30 +215,26 @@ class Ingreso extends Controller
 		$json = array();
 		while($row = mysqli_fetch_assoc($data)){
 			$json[] = array(
-				"idproducto"=>$row['idproducto'],
+				"idquimico"=>$row['idquimico'],
 				"nombre"=>$row['nombre'],
-				"fecFabricacion"=>$row['fecFabricacion'],
-				"fecVencimiento"=>$row['fecVencimiento'],
-				"marca"=>$row['marca'],
+				"feFabricacion"=>$row['feFabricacion'],
+				"feVencimiento"=>$row['feVencimiento'],
+				"codProducto"=>$row['codProducto'],
 				"tipo"=>$row['tipo'],
-				"clasificacion"=>$row['clasificacion'],
-				"clasificacion"=>$row['clasificacion'],
+				"clasificacion"=>$row['clasificacion'],	
+				"formula"=>$row['formula'],
 			);
 		}
 		echo json_encode($json);
 	}
 
-	function delete($idproducto)
-	{
-		$res = $this->model->Delete($idproducto);
-
-		if($res){
+	public function delete(){
+		$id = $_POST['id'];
+		if($this->model->Delete($id)){
 			echo "EXITO AL ELIMINAR";
-			$this->view->Render('ingreso/index');
 		}else{
 			echo "ERROR AL ELIMINAR";
-			$this->view->Render('ingreso/index');
 		}
 	}
-	
+	*/
 }

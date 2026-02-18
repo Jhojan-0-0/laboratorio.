@@ -434,7 +434,7 @@ cookies = if you want to use cookies to remember which page the user is on, true
       if (document.cookie && document.cookie != "") {
         var cookies = document.cookie.split(";");
         for (var i = 0; i < cookies.length; i++) {
-          var cookie = cookies[i];
+          var cookie = jQuery.trim(cookies[i]);
           // Does this cookie string begin with the name we want?
           if (cookie.substring(0, name.length + 1) == name + "=") {
             cookieValue = decodeURIComponent(cookie.substring(name.length + 1));

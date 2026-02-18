@@ -10,7 +10,7 @@ class IngresoModel extends Model{
         $res = $this->conn->ConsultaCon($sql);
 
         return $res;
-        $mysqli->close();
+        //$mysqli->close();
     }
 
     public function GetQuimicoId($id)
