@@ -7,10 +7,24 @@ class ValidarModel extends Model
         parent::__construct();
     }
 
-    function validar($usuario,$pass)
+    /**
+     * Guardar una validación en la tabla `validacion`
+     * @param int $idproducto
+     * @param int $encontrado (0|1)
+     * @param int $completo (0|1)
+     * @param string|null $obs
+     * @return bool
+     */
+    function Guardar($idproducto, $encontrado, $completo, $obs = null)
     {
-        $sql = "INSERT INTO validacion VALUES (null,'$idproducto','$encontrado','$completo','$obs','$fecCreate');";
-        $res = $this->conn->ConsultaCon($sql);
+        // Escapar valores para evitar errores con comillas
+        $idproducto = intval($idproducto);
+        $encontrado = intval($encontrado);
+        $completo = intval($completo);
+        $obs_esc = ($obs !== null) ? $this->conn->conn->real_escape_string($obs) : '';
+
+        $sql = "INSERT INTO validacion (idproducto, encontrado, completo, obs) VALUES ($idproducto, $encontrado, $completo, '" . $obs_esc . "');";
+        $res = $this->conn->ConsultaSin($sql);
         return $res;
     }
 

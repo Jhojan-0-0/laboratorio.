@@ -8,7 +8,7 @@ function listaQuimico() {
   
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio/validar/listarQuimico`,
+    url: `http://${host}/laboratorio./validar/listarQuimico`,
     success: function (response) {
       let data = response;
       let html = `

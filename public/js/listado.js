@@ -10,7 +10,7 @@ $(document).ready(function () {
 function listaComunes() {
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio/listado/getComunes`,
+    url: `http://${host}/laboratorio./listado/getComunes`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -39,7 +39,7 @@ function listaComunes() {
 function listafiscalizados() {
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio/listado/getFiscalizados`,
+    url: `http://${host}/laboratorio./listado/getFiscalizados`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -68,7 +68,7 @@ function listafiscalizados() {
 function listaacidos() {
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio/listado/getAcidos`,
+    url: `http://${host}/laboratorio./listado/getAcidos`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";
@@ -97,7 +97,7 @@ function listaacidos() {
 function listabasicos() {
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio/listado/getBasicos`,
+    url: `http://${host}/laboratorio./listado/getBasicos`,
     success: function (response) {
       let data = JSON.parse(response);
       let html = "";

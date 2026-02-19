@@ -10,7 +10,7 @@ $(document).ready(function () {
   function listaEntrega() { 
     $.ajax({
       type: "GET",
-      url: `http://${host}/laboratorio/entrega/getEntrega`,
+      url: `http://${host}/laboratorio./entrega/getEntrega`,
       success: function (response) {
         let data = JSON.parse(response);
         let html = "";
@@ -41,7 +41,7 @@ $(document).ready(function () {
   function BuscarsEntregas(query) {
     $.ajax({
       type: "GET",
-      url: `http://${host}/laboratorio/entrega/buscarEntregas`,
+      url: `http://${host}/laboratorio./entrega/buscarEntregas`,
       data: { query: query },
       success: function (response) {
         mostrar = JSON.parse(response);

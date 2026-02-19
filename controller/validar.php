@@ -14,40 +14,49 @@ class Validar extends Controller
  
   function Guardar()
   {
-    echo "En Guardar";
+  $json = file_get_contents('php://input');
+  $datos = json_decode($json, true); // true para obtener array asociativo
 
-    // Recibir los datos JSON
-    $json = file_get_contents('php://input');
-    $datos = json_decode($json, true); // true para obtener array asociativo
+  if (!$datos || !is_array($datos)) {
+    $datos = $_POST;
+  }
 
-    // Verificar si se recibieron datos
-    if ($datos) {
-        $idproducto = $datos['idproducto'];  
-        $encontrado = $datos['encontrado'];  
-        $completo = $datos['completo'];  
-        $obs = $datos['obs'];  
-        // Procesar los datos...
-        
-        // Enviar respuesta
-        echo json_encode([
-            'success' => true,
-            'message' => 'Datos recibidos correctamente',
-            'recibido' => $datos
-        ]);
-    } else {
-        echo json_encode([
-            'success' => false,
-            'message' => 'No se recibieron datos válidos'
-        ]);
+  if ($datos && isset($datos['idproducto'])) {
+    $idproducto = $datos['idproducto'];
+    $encontrado = isset($datos['encontrado']) ? $datos['encontrado'] : 0;
+    $completo = isset($datos['completo']) ? $datos['completo'] : 0;
+    $obs = isset($datos['obs']) ? $datos['obs'] : null;
+
+    $inserted = false;
+    if (method_exists($this->model, 'Guardar')) {
+      $inserted = $this->model->Guardar($idproducto, $encontrado, $completo, $obs);
     }
 
-        echo $idproducto = $_POST['idproducto'];
-        echo $encontrado = $_POST['encontrado'];
-        echo $completo = $_POST['completo'];
-        echo $observaciones = isset($_POST['obs']) ? $_POST['obs'] : '';
+    header('Content-Type: application/json; charset=utf-8');
+    if ($inserted) {
+      http_response_code(200);
+      echo json_encode([
+        'success' => true,
+        'message' => 'Registro guardado correctamente',
+        'data' => $datos
+      ]);
+      exit();
+    } else {
+      http_response_code(500);
+      echo json_encode([
+        'success' => false,
+        'message' => 'Error al guardar el registro',
+        'data' => $datos
+      ]);
+      exit();
+    }
 
-    
-      
+  } else {
+    echo json_encode([
+      'success' => false,
+      'message' => 'No se recibieron datos válidos'
+    ]);
+  }
   }
 
   function render()

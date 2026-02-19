@@ -94,7 +94,8 @@
 <?php require ('views/footer.php');?>
 
 <script>
-  var host = "localhost";
+  // Usar la URL base definida en config para construir endpoints
+  var baseUrl = "<?php echo constant('URL'); ?>";
 
   function mostrar(id){
 
@@ -105,13 +106,15 @@
     const completoSeleccionado   = fila.querySelector('input[name="completo"]:checked');
     const obs2   = fila.querySelector('input[name="obs"]').value;
 
-     if (!encontradoSeleccionado) {
-        alert("Debe seleccionar si el ítem fue **encontrado** (Sí o No)");
-    }
+   if (!encontradoSeleccionado) {
+    alert("Debe seleccionar si el ítem fue encontrado (Sí o No)");
+    return;
+  }
 
-    if (!completoSeleccionado) {
-        alert("Debe seleccionar si el ítem fue **Completo** (Sí o No)");
-    }
+  if (!completoSeleccionado) {
+    alert("Debe seleccionar si el ítem fue completo (Sí o No)");
+    return;
+  }
 
     
     const datos = {
@@ -124,17 +127,47 @@
         console.log("Datos de la fila:", datos);
 
         $.ajax({
-          url: `http://${host}/laboratorio/validar/Guardar`,
+          url: baseUrl + 'validar/Guardar',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(datos),
           dataType: 'json',
-          success: function(response) {
-              console.log('Respuesta:', response);
-          },
-          error: function(error) {
-              console.error('Error:', error);
-          }
+      success: function(response) {
+        console.log('Respuesta:', response);
+        if (response && response.success) {
+          alert('Guardado correctamente');
+
+          var mensaje = document.getElementById('mensaje');
+          mensaje.style.display = 'block';
+          mensaje.style.backgroundColor = '#3adb76';
+          mensaje.style.color = '#0a0a0a';
+          mensaje.innerText = response.message || 'Guardado correctamente';
+
+          setTimeout(function(){
+            mensaje.style.display = 'none';
+          }, 3000);
+        } else {
+          var mensaje = document.getElementById('mensaje');
+          mensaje.style.display = 'block';
+          mensaje.style.backgroundColor = '#ec5840';
+          mensaje.style.color = '#ffffff';
+          mensaje.innerText = (response && response.message) ? response.message : 'Error al guardar';
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.error('Error:', jqXHR, textStatus, errorThrown);
+        var mensaje = document.getElementById('mensaje');
+        mensaje.style.display = 'block';
+        mensaje.style.backgroundColor = '#ec5840';
+        mensaje.style.color = '#ffffff';
+        // intentar leer mensaje JSON si el servidor lo devolvió
+        try {
+          var resp = JSON.parse(jqXHR.responseText);
+          mensaje.innerText = resp.message || 'Error en el servidor';
+        } catch (e) {
+          mensaje.innerText = 'Error en la petición: ' + textStatus;
+        }
+      }
         });
   }
 
