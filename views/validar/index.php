@@ -60,7 +60,7 @@
               ?>
               <tr id="tablaproductos" mostrandoId="<?php echo $fila['idproducto'];?>" data-id="<?php echo $fila['idproducto'];?>">
                 <td><?php echo $fila['idproducto'];?>
-                  <input type="text" name="idproducto" id="idproducto" value="<?php echo $fila['idproducto'];?>"/>
+                  <input type="hidden" name="idproducto" id="idproducto" value="<?php echo $fila['idproducto'];?>"/>
                 </td>
                 <td><?php echo $fila['nombre'];?></td>
                 <td><?php echo $fila['cantidadsin'];?></td>
@@ -146,6 +146,7 @@
           setTimeout(function(){
             mensaje.style.display = 'none';
           }, 3000);
+          location.reload();
         } else {
           var mensaje = document.getElementById('mensaje');
           mensaje.style.display = 'block';

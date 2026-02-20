@@ -33,7 +33,6 @@
 						<th>Codigo de Producto</th>
 						<th>Tipo</th>
 						<th>Clasificaciòn</th>
-	                    <th>Formula de Quimico</th>
 						<th class="text-center" colspan="2">Acciones</th>
 					</tr>
 				</thead>

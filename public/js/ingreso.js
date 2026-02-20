@@ -6,7 +6,6 @@ $(document).ready(function () {
   Buscarquimico();
   postQuimico();
   updateQuimico();
-  
 });
 
 function listaQuimico() {
@@ -14,7 +13,7 @@ function listaQuimico() {
   //alert("listado");
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio./ingreso/listarQuimico`,
+    url: `http://${host}/laboratorio/ingreso/listarQuimico`,
     success: function (response) {
       let data = response;
       let html = "";
@@ -29,7 +28,7 @@ function listaQuimico() {
                       <td>${element.tipo}</td>
                       <td>${element.clasificacion}</td>
                       <td>${element.estante}</td>
-                  <td><a class="button" href="http://${host}/laboratorio./ingreso/informacion/${element.idproducto}" style="border-radius: 8px;">Informacion</a></td>
+                  <td><a class="button" href="http://${host}/laboratorio/ingreso/informacion/${element.idproducto}" style="border-radius: 8px;">Informacion</a></td>
                   <td><a class="button alert" onclick="eliminarRegistro(${element.idproducto})" style="border-radius: 8px;">Eliminar</a></td>
               </tr>`;
       });
@@ -46,7 +45,7 @@ function listaQuimico() {
 function eliminarRegistro(id) {
     if (confirm('¿Está seguro de eliminar este registro?')) {
         $.ajax({
-            url: `http://${host}/laboratorio./ingreso/delete/${id}`,
+            url: `http://${host}/laboratorio/ingreso/delete/${id}`,
             type: 'get',
             success: function(response) {
                 // Actualizar la tabla sin recargar la página
@@ -68,7 +67,7 @@ function Buscarquimico(query) {
       mostrar = [];
   $.ajax({
     type: "GET",
-    url: `http://${host}/laboratorio./ingreso/buscarquimico`,
+    url: `http://${host}/laboratorio/ingreso/buscarquimico`,
     data: { query: query },
     success: function (response) {
       mostrar = response;
@@ -105,7 +104,7 @@ function eliminar() {
     let id = $(this).parent().parent().attr("id");
     $.ajax({
       type: "POST",
-      url: `http://${host}/laboratorio./ingreso/delete/`,
+      url: `http://${host}/laboratorio/ingreso/delete/`,
       data: { id },
       success: function (response) {
         confirmation(1, "Eliminado Correctamente");

@@ -25,7 +25,6 @@ class Ingreso extends Controller
 	function render()
 	{
 		$this->view->Render('ingreso/index');
-		$this->view->data2 = $this->listarQuimico();
 	}
 
 	function nuevo()
@@ -72,12 +71,7 @@ class Ingreso extends Controller
 
         header('Content-Type: application/json; charset=utf-8');
         
-        echo json_encode([
-            'success'   => true,
-            'total'     => count($productos),
-            'data'      => $productos,
-            'timestamp' => date('c')
-        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
+        echo json_encode($productos);
 		
 			
 	}

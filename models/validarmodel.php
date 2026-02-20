@@ -25,11 +25,14 @@ class ValidarModel extends Model
 
         $sql = "INSERT INTO validacion (idproducto, encontrado, completo, obs) VALUES ($idproducto, $encontrado, $completo, '" . $obs_esc . "');";
         $res = $this->conn->ConsultaSin($sql);
+
+        $sql2 = "UPDATE productos SET validado = 1 WHERE idproducto = ".$idproducto.";";
+        $this->conn->ConsultaSin($sql2);
         return $res;
     }
 
     public function ListarQuimico(){
-        $sql = "SELECT idproducto,nombre,marca,clasificacion,fecFabricacion,fecVencimiento,numlote,fecAdquisicion,cantidadsin,um1,cantidadcon,um2,tipo,presentacion,precio,estante,nivel,codOC,horainicio,horafinal,fecCreate FROM productos;";
+        $sql = "SELECT idproducto,nombre,marca,clasificacion,fecFabricacion,fecVencimiento,numlote,fecAdquisicion,cantidadsin,um1,cantidadcon,um2 FROM productos WHERE validado = 0;";
         $res = $this->conn->ConsultaCon($sql);
 
         return $res;
