@@ -7,8 +7,8 @@
                 <h2 class="system-title">Sistema de Gestión de Inventarios</h2>
                 <p>Bienvenido al sistema web de gestión de inventarios del Mega Laboratorio de la Universidad Nacional del Altiplano de Puno.</p>
                 <div class="callout primary">
-                    <p>Usuario activo: <strong id="current-user">Dr. Juan Pérez</strong> | Rol: <strong>Administrador</strong></p>
-                    <p>Último acceso: 10 de febrero de 2024, 14:30 hrs</p>
+                    <p>Usuario activo: <strong id="current-user">Ludwig Aliaga Montesinos</strong> | Rol: <strong>Administrador</strong></p>
+                    <p id="ultimo-acceso"></p>
                 </div>
                 <h4>Funcionalidades principales:</h4>
                 <img src="LogoUNAP.png" alt="Logo UNAP" width="200">
@@ -66,3 +66,16 @@
     </div>
 
 <?php require ('views/footer.php');?>
+
+<script>
+const ahora = new Date();
+const dia = ahora.getDate();
+const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const mes = meses[ahora.getMonth()];
+const año = ahora.getFullYear();
+const horas = String(ahora.getHours()).padStart(2,'0');
+const minutos = String(ahora.getMinutes()).padStart(2,'0');
+
+document.getElementById("ultimo-acceso").textContent = 
+  `Último acceso: ${dia} de ${mes} de ${año}, ${horas}:${minutos} hrs`;
+</script>

@@ -24,43 +24,87 @@
   </div>
 
   <!-- Top Bar -->
-  <div class="top-bar custom-top-bar" id="responsive-menu">
-
-    <!-- Left -->
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text logo-text">
-          <i class="fa-solid fa-flask-vial"></i> Mega Laboratorio UNA Puno
-        </li>
-        <li><a href="<?php echo constant('URL'); ?>dashboard"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="<?php echo constant('URL'); ?>ingreso"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingreso</a></li>
-        <li><a href="<?php echo constant('URL'); ?>validar"><i class="fa-solid fa-check-circle"></i> Validar</a></li>
-        <li><a href="<?php echo constant('URL'); ?>galeria"><i class="fa-solid fa-images"></i> Galería</a></li>
-        <li><a href="<?php echo constant('URL'); ?>entrega"><i class="fa-solid fa-box"></i> Entrega</a></li>
-      </ul>
-    </div>
-
-    <!-- Right -->
-    <div class="top-bar-right">
-      <ul class="menu align-right">
-        <li>
-          <input type="search" placeholder="Buscar..." class="search-input">
-        </li>
-
-        <li class="user-info">
-          <i class="fa-solid fa-user-doctor"></i>
-          <span id="username">Dr. Juan Pérez</span>
-        </li>
-
-        <li>
-          <a class="logout-btn" href="<?php echo constant('URL'); ?>login/logout">
-            <i class="fa-solid fa-right-from-bracket"></i> Salir
-          </a>
-        </li>
-      </ul>
-    </div>
-
+  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="main-menu"></button>
+  <div class="title-bar-title">
+    <i class="fa-solid fa-flask-vial"></i> Mega Laboratorio UNA Puno
   </div>
+</div>
+
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu vertical medium-horizontal" data-dropdown-menu>
+      
+      <!-- Logo / Título (solo visible en desktop) -->
+      <li class="menu-text show-for-medium">
+        <i class="fa-solid fa-flask-vial"></i> Mega Laboratorio UNA Puno
+      </li>
+
+      <!-- Home -->
+      <li>
+        <a href="<?php echo constant('URL'); ?>dashboard">
+          <i class="fa-solid fa-house"></i> Inicio
+        </a>
+      </li>
+
+      <!-- Ingreso -->
+      <li>
+        <a href="<?php echo constant('URL'); ?>ingreso">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Ingreso
+        </a>
+      </li>
+
+      <!-- Registro Entrada/Salida -->
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-exchange-alt"></i> Entrada / Salida
+        </a>
+        <ul class="menu vertical">
+          <li><a href="<?php echo constant('URL'); ?>solicitud">Crear Nueva Solicitud</a></li>
+          <li><a href="<?php echo constant('URL'); ?>salida">Registro de Salida</a></li>
+          <li><a href="<?php echo constant('URL'); ?>reportdiario">Reporte Diario</a></li>
+        </ul>
+      </li>
+
+      <!-- Registro de solicitudes -->
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-clipboard-list"></i> Solicitudes
+        </a>
+        <ul class="menu vertical">
+          <li><a href="<?php echo constant('URL'); ?>solicitud">Nueva Solicitud</a></li>
+          <li><a href="#">Solicitudes en Borrador</a></li>
+          <!-- Puedes agregar más: <li><a href="#">Mis Solicitudes</a></li> -->
+        </ul>
+      </li>
+
+      <!-- Validar -->
+      <li>
+        <a href="<?php echo constant('URL'); ?>validar">
+          <i class="fa-solid fa-check-circle"></i> Validar
+        </a>
+      </li>
+
+      <!-- Galería -->
+      <li>
+        <a href="<?php echo constant('URL'); ?>galeria">
+          <i class="fa-solid fa-images"></i> Galería
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Opcional: espacio para menú derecho (usuario, logout, etc.) -->
+  <!-- 
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><a href="#">Edgar <i class="fa-solid fa-user"></i></a></li>
+      <li><a href="#">Salir <i class="fa-solid fa-sign-out-alt"></i></a></li>
+    </ul>
+  </div>
+  -->
+</div>
 
   <br>
 
