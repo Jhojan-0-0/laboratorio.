@@ -2,20 +2,24 @@
 
     <div class="grid-container">
         <!-- Contenido principal -->
-        <div class="content">
-            <div class="welcome-card">
+        <br>
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-12 medium-6 large-6">
+                <div class="welcome-card">
                 <h2 class="system-title">Sistema de Gestión de Inventarios</h2>
                 <p>Bienvenido al sistema web de gestión de inventarios del Mega Laboratorio de la Universidad Nacional del Altiplano de Puno.</p>
                 <div class="callout primary">
                     <p>Usuario activo: <strong id="current-user">Ludwig Aliaga Montesinos</strong> | Rol: <strong>Administrador</strong></p>
                     <p id="ultimo-acceso"></p>
                 </div>
-                <h4>Funcionalidades principales:</h4>
-                <img src="LogoUNAP.png" alt="Logo UNAP" width="200">
-                
             </div>
-            
-            <div class="grid-x grid-margin-x" style="margin-top: 30px;">
+            </div>
+            <div class="cell small-12 medium-6 large-6">
+                <div class="cell small-12 medium-12 large-12 text-center">
+                    <img src="LogoUNAP.png" alt="Logo UNAP" width="145">
+                
+                </div>
+                <div class="grid-x grid-margin-x" style="margin-top: 30px;">
                 <div class="cell small-12 medium-6 large-3">
                     <div class="callout success text-center">
                         <h5>Productos en stock</h5>
@@ -41,6 +45,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
         <div class="grid-x grid-margin-x">
             <div class="cell small-12 medium-6">
@@ -48,6 +53,7 @@
                 </div>
             </div>
         </div>
+        <hr>
         <div class="grid-x grid-margin-x">
             <div class="cell small-12 medium-6">
                 <h2>Misión</h2>

@@ -40,7 +40,7 @@
         <span class="input-group-label">
           <i class="fa-solid fa-user"></i>
         </span>
-        <input class="input-group-field" type="text" name="usuario" required placeholder="Ingrese su usuario">
+        <input class="input-group-field" type="text" name="usuario" value="admin" required placeholder="Ingrese su usuario">
       </div>
 
       <!-- Password -->
@@ -49,7 +49,7 @@
         <span class="input-group-label">
           <i class="fa-solid fa-lock"></i>
         </span>
-        <input class="input-group-field" type="password" name="password" required placeholder="Ingrese su contraseña">
+        <input class="input-group-field" type="password" name="password" value="123" required placeholder="Ingrese su contraseña">
       </div>
 
       <br>

@@ -202,7 +202,7 @@ class Ingreso extends Controller
 			// header("location: http://localhost/laboratorio/ingreso");
 		}	
 	}
-
+	*/
 	function buscarquimico(){
 		$query = $_GET['query'];
 		$data = $this->model->Buscarquimico($query);
@@ -230,5 +230,5 @@ class Ingreso extends Controller
 			echo "ERROR AL ELIMINAR";
 		}
 	}
-	*/
+
 }

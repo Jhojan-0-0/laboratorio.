@@ -4,25 +4,27 @@
 
   <h1>Registro de Producto</h1>
 
-  <form>
+  <form action="<?php echo constant('URL') ?>solicitud/create" method="post" class="translucent-form-overlay">
+
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
 
         <div class="cell medium-2">
           <label>Código Personal
-            <input type="text" name="codpersonal" placeholder="Ej: PER-001" required>
+            <input type="text" id="codPersonal" placeholder="Ej: PER-001" required>
+            <input type="hidden" name="idpersonal" id="idpersonal">
           </label>
         </div>
 
         <div class="cell medium-6">
           <label>Nombre Trabajador
-            <input type="text" name="nomtrabajador" placeholder="Nombre completo del producto" required>
+            <input type="text" id="nomtrabajador" name="nomtrabajador" readonly>
           </label>
         </div>
 
         <div class="cell medium-4">
           <label>Escuela Profesional
-            <input type="text" name="escuelaprofesional" placeholder="Nombre completo del producto" required>
+            <input type="text" id="escuelaprofesional" name="escuelaprofesional" readonly>
           </label>
         </div>
 
@@ -75,5 +77,9 @@
       </div>
     </div>
   </form>
+  <script src="<?php echo constant('URL') ?>public/js/solicitud.js"></script>
+  <script>
+    var BASE_URL = "<?php echo constant('URL') ?>";
+  </script>
 
   <?php require ('views/footer.php');?>

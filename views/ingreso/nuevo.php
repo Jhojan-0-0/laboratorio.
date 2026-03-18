@@ -107,12 +107,12 @@
       <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-6 large-4">
           <label for="estante">Estante
-            <input type="text" name="estante" id="estante">
+            <input type="number" name="estante" id="estante">
           </label>
         </div>
         <div class="cell small-12 medium-6 large-4">
           <label for="nivel">Nivel
-            <input type="text" name="nivel" id="nivel">
+            <input type="number" name="nivel" id="nivel">
           </label>
         </div>
         <div class="cell small-12 medium-6 large-4">

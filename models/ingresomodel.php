@@ -21,13 +21,17 @@ class IngresoModel extends Model{
         $mysqli->close();
     }
 
-    public function CreateQuimico($nombre,$marca,$clasificacion,$fecFabricacion,$fecVencimiento,$numlote,$fecAdquisicion,$cantidadsin,$um1,$cantidadcon,$um2,$tipo,$presentacion,$precio,$estante,$nivel,$codOC,$horainicio,$horafinal)
-    {
-        $sql = "INSERT INTO productos VALUES (null,'$nombre','$marca','$clasificacion','$fecFabricacion','$fecVencimiento','$numlote','$fecAdquisicion','$cantidadsin','$um1','$cantidadcon','$um2','$tipo','$presentacion','$precio','$estante','$nivel','$codOC','$horainicio','$horafinal');";
-        
-        $res = $this->conn->ConsultaSin($sql);
-        return $res;
-    }
+public function CreateQuimico($nombre,$marca,$clasificacion,$fecFabricacion,$fecVencimiento,$numlote,$fecAdquisicion,$cantidadsin,$um1,$cantidadcon,$um2,$tipo,$presentacion,$precio,$estante,$nivel,$codOC,$horainicio,$horafinal)
+{
+$sql = "INSERT INTO productos
+(nombre,marca,clasificacion,fecFabricacion,fecVencimiento,numlote,fecAdquisicion,cantidadsin,um1,cantidadcon,um2,tipo,presentacion,precio,estante,nivel,codOC,horainicio,horafinal)
+VALUES
+('$nombre','$marca','$clasificacion','$fecFabricacion','$fecVencimiento','$numlote','$fecAdquisicion','$cantidadsin','$um1','$cantidadcon','$um2','$tipo','$presentacion','$precio','$estante','$nivel','$codOC','$horainicio','$horafinal')";
+    
+$res = $this->conn->ConsultaSin($sql);
+
+return $res;
+}
 
     public function Buscarquimico($query){
         $sql = "SELECT * FROM productos WHERE nombre LIKE '%$query%' OR clasificacion LIKE '%$query%';";

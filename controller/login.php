@@ -9,7 +9,7 @@ class Login extends Controller
 
     function login()
     {
-        echo "dentro";
+        // echo "dentro";
         echo $user = trim(strtolower($_POST['usuario']));
         echo $pass = trim(strtolower($_POST['password']));
 
@@ -26,7 +26,9 @@ class Login extends Controller
 					break;
 				case 2:
 				   // Personal
-				$_SESSION['katari'] = $datos['idpersonal'];
+				echo $_SESSION['katari'] = $datos['idpersonal'];
+                echo $_SESSION['username'] = $datos['nombre'].' '.$datos['apellidos'];
+                echo $_SESSION['idpersonal'] = $datos['idpersonal'];
                 $this->bitacora();
 				break;
 			}

@@ -9,8 +9,6 @@
     <small class="copyright">Todos los derechos reservados.</small>
   </div>
   <!-- CHARTJS-GRAFICOS -->
-  <script language="JavaScript" type="text/javascript" src="<?php echo constant('URL');?>public/js/jquery-4.0.0.min.js"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo constant('URL');?>public/js/foundation.min.js"></script>
   <!--<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>-->
   <!--<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>-->
   
